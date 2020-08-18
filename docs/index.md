@@ -3,6 +3,10 @@
 # CBE40455-2020
 
 ### [Table of Contents](https://jckantor.github.io/CBE40455-2020/toc.html)
+### [Figure Index](https://jckantor.github.io/CBE40455-2020/figure_index.html)
+### [Python Module Index](https://jckantor.github.io/CBE40455-2020/python_index.html)
 
 ### [Chapter 1.0 CBE 40455/60455 Process Operations: Syllabus](https://jckantor.github.io/CBE40455-2020/01.00-Syllabus.html)
+- [2.1 Campus SIR Modeling](https://jckantor.github.io/CBE40455-2020/02.01-Campus-SIR-modeling.html)
+- [2.2 Campus SEIR Modeling](https://jckantor.github.io/CBE40455-2020/02.02-Campus-SEIR-modeling.html)
 

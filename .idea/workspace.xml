@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b830bbb8-0bb4-4d0f-a24d-11597fe57240" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/docs/01.00-Syllabus.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/01.00-Syllabus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/01.00-Syllabus.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/docs/01.00-Syllabus.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/toc.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/toc.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
