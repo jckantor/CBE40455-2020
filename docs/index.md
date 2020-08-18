@@ -7,6 +7,10 @@
 ### [Python Module Index](https://jckantor.github.io/CBE40455-2020/python_index.html)
 
 ### [Chapter 1.0 CBE 40455/60455 Process Operations: Syllabus](https://jckantor.github.io/CBE40455-2020/01.00-Syllabus.html)
+
+### [Chapter 2.0 Modeling](https://jckantor.github.io/CBE40455-2020/02.00-Modeling.html)
 - [2.1 Campus SIR Modeling](https://jckantor.github.io/CBE40455-2020/02.01-Campus-SIR-modeling.html)
 - [2.2 Campus SEIR Modeling](https://jckantor.github.io/CBE40455-2020/02.02-Campus-SEIR-modeling.html)
+- [2.3 Campus Re-opening Model](https://jckantor.github.io/CBE40455-2020/02.03-Campus-reopening.html)
+- [2.10 Agent based model for control of COVID-19 on a college campus](https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.html)
 

@@ -1,8 +1,9 @@
+<!-- jinja2 template extends `full` to include cell tags in the html rendering of notebooks -->
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
 
-<title>toc</title>
+<title>Notebook</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13074,91 +13075,669 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+
+    
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="CBE40455-2020"><a href="https://jckantor.github.io/CBE40455-2020">CBE40455-2020</a><a class="anchor-link" href="#CBE40455-2020">&#182;</a></h1><h2 id="Chapter-1.0-CBE-40455/60455-Process-Operations:-Syllabus"><a href="https://jckantor.github.io/CBE40455-2020/01.00-Syllabus.html">Chapter 1.0 CBE 40455/60455 Process Operations: Syllabus</a><a class="anchor-link" href="#Chapter-1.0-CBE-40455/60455-Process-Operations:-Syllabus">&#182;</a></h2><ul>
-<li>Markdown Links<ul>
-<li><a href="">Sakai</a></li>
-<li><a href="jckantor.github.io/CBE40455">jckantor.github.io/CBE40455</a></li>
-<li><a href="jeff@nd.edu">jeff@nd.edu</a></li>
-<li><a href="http://www-03.ibm.com/software/products/en/subcategory/decision-optimization">CPLEX/OPL</a></li>
-<li><a href="http://www.beergame.org/">Beer Game Simulation</a></li>
-<li><a href="https://pdfs.semanticscholar.org/647a/c2ded3d69e41bb09ef5556aa942e01abd14d.pdf">"What is the right supply chain for your product?." Harvard business review 75 (1997): 105-117.</a></li>
-<li><a href="https://www.springer.com/gp/book/9781461462767">Networks Against Time</a></li>
-<li><a href="https://link-springer-com.proxy.library.nd.edu/book/10.1007%2F978-1-4614-6277-4">Hesburgh Library</a></li>
-<li><a href="http://www.aimms.com/downloads/application-examples">AIMMS Application Examples</a></li>
-<li><a href="https://github.com/">Github</a></li>
-<li><a href="https://desktop.github.com/">Github Desktop application</a></li>
-<li><a href="https://help.github.com/en/articles/set-up-git">tutorial and guides</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="Chapter-2.0-Modeling"><a href="https://jckantor.github.io/CBE40455-2020/02.00-Modeling.html">Chapter 2.0 Modeling</a><a class="anchor-link" href="#Chapter-2.0-Modeling">&#182;</a></h2><ul>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.00-Modeling.html#2.0.1-Readings">2.0.1 Readings</a><ul>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.00-Modeling.html#2.0.1.1-Agent-Based-Modeling">2.0.1.1 Agent Based Modeling</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.00-Modeling.html#2.0.1.2-Simpy">2.0.1.2 Simpy</a></li>
-</ul>
-</li>
-<li>Markdown Links<ul>
-<li><a href="https://www.pnas.org/content/pnas/99/suppl_3/7280.full.pdf">https://www.pnas.org/content/pnas/99/suppl_3/7280.full.pdf</a></li>
-<li><a href="https://en.wikipedia.org/wiki/SimPy">Simpy: Wikipedia entry</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="2.1-Campus-SIR-Modeling"><a href="https://jckantor.github.io/CBE40455-2020/02.01-Campus-SIR-modeling.html">2.1 Campus SIR Modeling</a><a class="anchor-link" href="#2.1-Campus-SIR-Modeling">&#182;</a></h3><ul>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.01-Campus-SIR-modeling.html#2.1.1-Campus-infection-data">2.1.1 Campus infection data</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.01-Campus-SIR-modeling.html#2.1.2-Fitting-an-SIR-model-to-campus-data">2.1.2 Fitting an SIR model to campus data</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.01-Campus-SIR-modeling.html#2.1.3-Fitted-parameter-values">2.1.3 Fitted parameter values</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.01-Campus-SIR-modeling.html#2.1.4-Short-term-predictions-of-newly-confirmed-cases">2.1.4 Short term predictions of newly confirmed cases</a></li>
-<li>Markdown Links<ul>
-<li><a href="https://here.nd.edu/our-approach/dashboard/">Notre Dame Covid-19 Dashboard</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="2.2-Campus-SEIR-Modeling"><a href="https://jckantor.github.io/CBE40455-2020/02.02-Campus-SEIR-modeling.html">2.2 Campus SEIR Modeling</a><a class="anchor-link" href="#2.2-Campus-SEIR-Modeling">&#182;</a></h3><ul>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.02-Campus-SEIR-modeling.html#2.2.1-Campus-infection-data">2.2.1 Campus infection data</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.02-Campus-SEIR-modeling.html#2.2.2-Fitting-an-SEIR-model-to-campus-data">2.2.2 Fitting an SEIR model to campus data</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.02-Campus-SEIR-modeling.html#2.2.3-Fitted-parameter-values">2.2.3 Fitted parameter values</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.02-Campus-SEIR-modeling.html#2.2.4-Short-term-predictions-of-newly-confirmed-cases">2.2.4 Short term predictions of newly confirmed cases</a></li>
-<li>Markdown Links<ul>
-<li><a href="https://here.nd.edu/our-approach/dashboard/">Notre Dame Covid-19 Dashboard</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="2.3-Campus-Re-opening-Model"><a href="https://jckantor.github.io/CBE40455-2020/02.03-Campus-reopening.html">2.3 Campus Re-opening Model</a><a class="anchor-link" href="#2.3-Campus-Re-opening-Model">&#182;</a></h3>
-<pre><code>- [2.3.2 Isolation pool](https://jckantor.github.io/CBE40455-2020/02.03-Campus-reopening.html#2.3.2-Isolation-pool)
-- [2.3.3 Removed pool](https://jckantor.github.io/CBE40455-2020/02.03-Campus-reopening.html#2.3.3-Removed-pool)
-- [2.3.4 Parameter estimates](https://jckantor.github.io/CBE40455-2020/02.03-Campus-reopening.html#2.3.4-Parameter-estimates)
-    - [2.3.4.1 Odds of becoming symptomatic if infected](https://jckantor.github.io/CBE40455-2020/02.03-Campus-reopening.html#2.3.4.1-Odds-of-becoming-symptomatic-if-infected)
-    - [2.3.4.2 Effective reproductive number with isolation of symptomatic individuals](https://jckantor.github.io/CBE40455-2020/02.03-Campus-reopening.html#2.3.4.2-Effective-reproductive-number-with-isolation-of-symptomatic-individuals)
-    - [2.3.4.3 Testing threshold](https://jckantor.github.io/CBE40455-2020/02.03-Campus-reopening.html#2.3.4.3-Testing-threshold)
-    - [2.3.4.4 Parameter values](https://jckantor.github.io/CBE40455-2020/02.03-Campus-reopening.html#2.3.4.4-Parameter-values)
+<p><!--NOTEBOOK_HEADER-->
+<em>This notebook contains material from <a href="https://jckantor.github.io/CBE40455-2020">CBE40455-2020</a>;
+content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on Github</a>.</em></p>
 
-</code></pre>
-<h3 id="2.10-Agent-based-model-for-control-of-COVID-19-on-a-college-campus"><a href="https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.html">2.10 Agent based model for control of COVID-19 on a college campus</a><a class="anchor-link" href="#2.10-Agent-based-model-for-control-of-COVID-19-on-a-college-campus">&#182;</a></h3><ul>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.html#2.10.1-References">2.10.1 References</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.html#2.10.2-Installation-and-Imports">2.10.2 Installation and Imports</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.html#2.10.3-Agent-Model">2.10.3 Agent Model</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.html#2.10.4-Infection-process">2.10.4 Infection process</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.html#2.10.5-COVID-19-Transmission-Process">2.10.5 COVID-19 Transmission Process</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.html#2.10.6-Transmission-from-exogeneous-sources-and-super-spreader-events">2.10.6 Transmission from exogeneous sources and super-spreader events</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.html#2.10.7-Testing-and-Isolation-of-Asymptomatic-Individuals">2.10.7 Testing and Isolation of Asymptomatic Individuals</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.html#2.10.8-Isolation-of-Symptomatic-Individuals">2.10.8 Isolation of Symptomatic Individuals</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.html#2.10.9-Recovery-and-Return">2.10.9 Recovery and Return</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.html#2.10.10-Simulation">2.10.10 Simulation</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.html#2.10.11-Post-Processing-Simulation-Data">2.10.11 Post-Processing Simulation Data</a></li>
-<li>Markdown Links<ul>
-<li><a href="https://simpy.readthedocs.io/en/latest/">SimPy</a></li>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><!--NAVIGATION-->
+&lt; <a href="https://jckantor.github.io/CBE40455-2020/02.03-Campus-reopening.html">2.3 Campus Re-opening Model</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/02.10-Agent-based-campus-covid-model.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="2.10-Agent-based-model-for-control-of-COVID-19-on-a-college-campus">2.10 Agent based model for control of COVID-19 on a college campus<a class="anchor-link" href="#2.10-Agent-based-model-for-control-of-COVID-19-on-a-college-campus">&#182;</a></h1><p>Jeffrey Kantor \
+August, 2020</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This notebook presents an agent-based model for the transmission and control of COVID-19 in a campus-like environment. The model is implemented using
+<a href="https://simpy.readthedocs.io/en/latest/">SimPy</a>, an easy-to-use python framework for developing simulations of discrete-event processes.</p>
+<p>The agents are surrogates for individuals in a semi-isolated population typical of those found on residential college campuses. Individuals within the population are assumed to be in frequent contact in a 'well-mixed' environment, and in limited contact with individuals outside of the campus community. The agents simulate the progress of COVID-19 through the various stages of the disease. The agents are implemented as instances of a Python class.</p>
+<p>Transmission of COVID-19 is modeled as a SimPy process involving the random contact of an agent in an infectious state with an individual in a susceptible state. The frequency of contact is derived from empirical estimates of $R_0$.</p>
+<p>The dynamics and management of COVID-19 outbreaks are also modeled as SimPy processes. The processes include:</p>
+<ul>
+<li>Contact and disease transmission from individual outside of the campus population.</li>
+<li>Self-reporting and isolation of symptomatic individuals.</li>
+<li>Testing and isolation of infectious individuals.</li>
+<li>Return of recovered individuals to the campus population.</li>
+<li>Real-time reporting</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>This is a work in progress -- major changes and work required</strong></p>
+<ul>
+<li>document elements of the model</li>
+<li>reparameterize to use R0 as an input parameter</li>
+<li>add data logging for isolation and testing instances</li>
+<li>create a UI</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.10.1-References">2.10.1 References<a class="anchor-link" href="#2.10.1-References">&#182;</a></h2><p><strong>SimPy</strong></p>
+<ul>
 <li><a href="https://gitlab.com/team-simpy/simpy">SimPy repository</a></li>
 <li><a href="https://realpython.com/simpy-simulating-with-python/">SimPy: Simulating Real-World Processes With Python</a></li>
 </ul>
-</li>
+<p><strong>Agent-based modeling</strong></p>
+<ul>
+<li>Bonabeau, Eric. "Agent-based modeling: Methods and techniques for simulating human systems." Proceedings of the national academy of sciences 99.suppl 3 (2002): 7280-7287.</li>
 </ul>
 
 </div>
 </div>
 </div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.10.2-Installation-and-Imports">2.10.2 Installation and Imports<a class="anchor-link" href="#2.10.2-Installation-and-Imports">&#182;</a></h2><p>SimPy is not typically included with standard Python distributions. The following cell imports and installs the latest version of SimPy from the PyPi repository.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install simpy
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Collecting simpy
+  Downloading https://files.pythonhosted.org/packages/20/f9/874b0bab83406827db93292a5bbe5acb5c18e3cea665b2f6e053292cb687/simpy-4.0.1-py2.py3-none-any.whl
+Installing collected packages: simpy
+Successfully installed simpy-4.0.1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>All initializations and imports needed to run the code in this notebook are consolidated into the following cell.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[100]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">import</span> <span class="nn">simpy</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.10.3-Agent-Model">2.10.3 Agent Model<a class="anchor-link" href="#2.10.3-Agent-Model">&#182;</a></h2><p>The agent model encapsulates details of the disease progression in an individual following an infective event. The progress of the disease is characterized by three parameters</p>
+<table>
+<thead><tr>
+<th style="text-align:center">parameter</th>
+<th style="text-align:center">default value</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$t_{latent}$</td>
+<td style="text-align:center">3 d</td>
+<td style="text-align:left">mean latency period</td>
+</tr>
+<tr>
+<td style="text-align:center">$t_{infect}$</td>
+<td style="text-align:center">8 d</td>
+<td style="text-align:left">mean infectious period prior to recovery</td>
+</tr>
+<tr>
+<td style="text-align:center">$p_{s</td>
+<td style="text-align:center">i}$</td>
+<td style="text-align:left">0.3</td>
+<td>probability of becoming symptomatic following infection</td>
+</tr>
+</tbody>
+</table>
+<p>On initialization, the agent is assigned a "susceptible" state and individual values of the key parameters. The agent remains in the initial state until it receives an "infect" event. Upon infection, the agent state progresses to a latent "exposed" state.</p>
+<p>Following infection, the agent transitions to either and infectious state, either with or without symptoms. The rate of transition is governed by a Poisson process with rate $1/t_{latent}$. The probability of the symptomatic state is $p_{s|i}$.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[185]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">():</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s2">&quot;susceptible&quot;</span><span class="p">,</span> <span class="n">t_latent</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">t_infect</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span> <span class="n">psi</span><span class="o">=</span><span class="mf">0.3</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env</span> <span class="o">=</span> <span class="n">env</span>              <span class="c1"># simulation environment</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>                <span class="c1"># agent id for post-processing</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>              <span class="c1"># log events for this agent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">change_status</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>  <span class="c1"># status</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">infect</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">event</span><span class="p">()</span>   <span class="c1"># infection event</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t_latent</span> <span class="o">=</span> <span class="n">t_latent</span>    <span class="c1"># latency period in days</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">t_infect</span> <span class="o">=</span> <span class="n">t_infect</span>    <span class="c1"># infectious period in days</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">psi</span> <span class="o">=</span> <span class="n">psi</span>              <span class="c1"># probability of symptoms following infection</span>
+        <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">run</span><span class="p">())</span>     <span class="c1"># register agent with the simulation environment</span>
+
+    <span class="k">def</span> <span class="nf">log_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">change_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="n">status</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">infect</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">change_status</span><span class="p">(</span><span class="s2">&quot;exposed&quot;</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">t_latent</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">psi</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">change_status</span><span class="p">(</span><span class="s2">&quot;asymptomatic&quot;</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t_infect</span><span class="p">)))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">change_status</span><span class="p">(</span><span class="s2">&quot;asymptomatic-recovered&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">change_status</span><span class="p">(</span><span class="s2">&quot;symptomatic&quot;</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t_infect</span><span class="p">)))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">change_status</span><span class="p">(</span><span class="s2">&quot;symptomatic-recovered&quot;</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">change_status</span><span class="p">(</span><span class="s2">&quot;recovered&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.10.4-Infection-process">2.10.4 Infection process<a class="anchor-link" href="#2.10.4-Infection-process">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[186]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">infect</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Infect n susceptible individuals.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">infect</span><span class="o">.</span><span class="n">succeed</span><span class="p">()</span>
+    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.10.5-COVID-19-Transmission-Process">2.10.5 COVID-19 Transmission Process<a class="anchor-link" href="#2.10.5-COVID-19-Transmission-Process">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[187]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">covid</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="c1"># Poisson process</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">expovariate</span><span class="p">(</span><span class="n">beta</span><span class="p">))</span>
+
+        <span class="c1"># pick two individuals at random</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="c1"># transmit infection</span>
+        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;susceptible&quot;</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;asymptomatic&quot;</span><span class="p">,</span> <span class="s2">&quot;symptomatic&quot;</span><span class="p">):</span>
+            <span class="n">a</span><span class="o">.</span><span class="n">infect</span><span class="o">.</span><span class="n">succeed</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">a</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;asymptomatic&quot;</span><span class="p">,</span> <span class="s2">&quot;symptomatic&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">b</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;susceptible&quot;</span><span class="p">:</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">infect</span><span class="o">.</span><span class="n">succeed</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.10.6-Transmission-from-exogeneous-sources-and-super-spreader-events">2.10.6 Transmission from exogeneous sources and super-spreader events<a class="anchor-link" href="#2.10.6-Transmission-from-exogeneous-sources-and-super-spreader-events">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[188]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">super_spreader_events</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+    <span class="n">p_infect</span> <span class="o">=</span> <span class="mf">0.01</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">7.0</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;susceptible&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">p_infect</span><span class="p">:</span>
+                    <span class="c1">#print(f&quot;Student {s.name} infected by superspreader event on day {env.now:4.1f}&quot;)</span>
+                    <span class="n">s</span><span class="o">.</span><span class="n">infect</span><span class="o">.</span><span class="n">succeed</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.10.7-Testing-and-Isolation-of-Asymptomatic-Individuals">2.10.7 Testing and Isolation of Asymptomatic Individuals<a class="anchor-link" href="#2.10.7-Testing-and-Isolation-of-Asymptomatic-Individuals">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[196]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">testing</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">t_repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">t_delay</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">p_sensitivity</span> <span class="o">=</span> <span class="mf">0.7</span>
+    <span class="n">p_selectivity</span> <span class="o">=</span> <span class="mf">99.5</span>
+    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">t_delay</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">t_repeat</span> <span class="o">-</span> <span class="n">t_delay</span><span class="p">)</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">population</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;symptomatic&quot;</span><span class="p">,</span> <span class="s2">&quot;asymptomatic&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">p_sensitivity</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">t_delay</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">pos</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">population</span><span class="p">:</span>
+                <span class="n">isolation</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+                <span class="n">population</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.10.8-Isolation-of-Symptomatic-Individuals">2.10.8 Isolation of Symptomatic Individuals<a class="anchor-link" href="#2.10.8-Isolation-of-Symptomatic-Individuals">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[197]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">isolate_symptomatics</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Isolate symptomatics perfectly every day&quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">population</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;symptomatic&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">tmp</span><span class="p">:</span>
+            <span class="n">isolation</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+            <span class="n">population</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.10.9-Recovery-and-Return">2.10.9 Recovery and Return<a class="anchor-link" href="#2.10.9-Recovery-and-Return">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[198]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">return_healthy</span><span class="p">(</span><span class="n">env</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">isolation</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">status</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;asymptomatic&quot;</span><span class="p">,</span> <span class="s2">&quot;symptomatic&quot;</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">tmp</span><span class="p">:</span>
+            <span class="n">isolation</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+            <span class="n">population</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.10.10-Simulation">2.10.10 Simulation<a class="anchor-link" href="#2.10.10-Simulation">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[205]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">400</span>
+
+<span class="c1"># create simulation environment</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+
+<span class="c1"># create campus population</span>
+<span class="n">population</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">Person</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+<span class="n">isolation</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="c1"># start up all processes</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">infect</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">covid</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="mf">0.8</span><span class="o">*</span><span class="n">N</span><span class="p">))</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">super_spreader_events</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">testing</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">t_repeat</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">t_delay</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">isolate_symptomatics</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">return_healthy</span><span class="p">(</span><span class="n">env</span><span class="p">))</span>
+
+<span class="c1"># run simulation</span>
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.10.11-Post-Processing-Simulation-Data">2.10.11 Post-Processing Simulation Data<a class="anchor-link" href="#2.10.11-Post-Processing-Simulation-Data">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[206]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># post-processing</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="n">s</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">status</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">population</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">data</span><span class="p">]</span>
+
+<span class="c1"># create pandas data frame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+
+<span class="n">U</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;susceptible&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="n">E</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;exposed&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="n">S</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;symptomatic&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="n">SR</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;symptomatic-recovered&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="n">A</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;asymptomatic&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="n">AR</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;asymptomatic-recovered&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;recovered&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+
+<span class="n">u</span> <span class="o">=</span> <span class="n">U</span> <span class="o">-</span> <span class="n">E</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">E</span> <span class="o">-</span> <span class="p">(</span><span class="n">S</span> <span class="o">+</span> <span class="n">A</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">S</span> <span class="o">-</span> <span class="n">SR</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="n">AR</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">R</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;susceptible&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;exposed&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;symptomatic&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;asymptomatic&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;recovered&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># post-processing</span>
+<span class="c1">##log = np.array(log)</span>
+<span class="c1">#plt.plot(log[:,0], log[:, 1:]);</span>
+<span class="c1">#plt.legend([&#39;susceptible&#39;, &#39;exposed&#39;, &#39;asymptomatic&#39;, &#39;symptomatic&#39;, &#39;recovered&#39;])</span>
+<span class="c1">#plt.xlabel(&#39;days&#39;)</span>
+<span class="c1">#plt.ylabel(&#39;number&#39;);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[206]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.legend.Legend at 0x7fc4f36fc518&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[206]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><!--NAVIGATION-->
+&lt; <a href="https://jckantor.github.io/CBE40455-2020/02.03-Campus-reopening.html">2.3 Campus Re-opening Model</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/02.10-Agent-based-campus-covid-model.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/02.10-Agent-based-campus-covid-model.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+
+</div>
+</div>
+</div>
+
+
     </div>
   </div>
 </body>

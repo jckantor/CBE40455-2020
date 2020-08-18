@@ -13095,7 +13095,7 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/CBE40455-2020/01.00-Syllabus.html">1.0 CBE 40455/60455 Process Operations: Syllabus</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/CBE40455-2020/02.02-Campus-SEIR-modeling.html">2.2 Campus SEIR Modeling</a><p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/02.01-Campus-SIR-modeling.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/02.01-Campus-SIR-modeling.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/CBE40455-2020/02.00-Modeling.html">2.0 Modeling</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/CBE40455-2020/02.02-Campus-SEIR-modeling.html">2.2 Campus SEIR Modeling</a><p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/02.01-Campus-SIR-modeling.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/02.01-Campus-SIR-modeling.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13203,6 +13203,11 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="2.1.2-Fitting-an-SIR-model-to-campus-data">2.1.2 Fitting an SIR model to campus data<a class="anchor-link" href="#2.1.2-Fitting-an-SIR-model-to-campus-data">&#182;</a></h2><p>Because of  the limited amount of data available at the time this notebook was prepared, the model fitting has been limited to a standard SIR model for infectious disease in a homogeneous population.</p>
+$$\text{Susceptible}
+\xrightarrow {\frac{\beta S I}{N}} 
+\text{Infectious} 
+\xrightarrow{\gamma I} 
+\text{Recovered} $$<p>The resulting differential equations are:</p>
 $$\begin{align*}
 \frac{dS}{dt} &amp;= -\beta S \frac{I}{N} \\
 \frac{dI}{dt} &amp;= \beta S \frac{I}{N} - \gamma I \\
@@ -13514,7 +13519,7 @@ R0               2.79852
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/CBE40455-2020/01.00-Syllabus.html">1.0 CBE 40455/60455 Process Operations: Syllabus</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/CBE40455-2020/02.02-Campus-SEIR-modeling.html">2.2 Campus SEIR Modeling</a><p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/02.01-Campus-SIR-modeling.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/02.01-Campus-SIR-modeling.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/CBE40455-2020/02.00-Modeling.html">2.0 Modeling</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/CBE40455-2020/02.02-Campus-SEIR-modeling.html">2.2 Campus SEIR Modeling</a><p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/02.01-Campus-SIR-modeling.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/02.01-Campus-SIR-modeling.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
