@@ -13095,7 +13095,7 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/CBE40455-2020/03.01-Python-Generators.html">3.1 Python Generators</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/CBE40455-2020/03.10-Agent-based-campus-covid-model.html">3.10 Agent based model for control of COVID-19 on a college campus</a><p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/03.02-Simpy.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/03.02-Simpy.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/CBE40455-2020/03.01-Python-Generators.html">3.1 Python Generators</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/CBE40455-2020/03.10-Agent-based-campus-covid-model.html">3.10 Agent based model for control of COVID-19 on a college campus</a><p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/03.02-Introduction-to-Simpy.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/03.02-Introduction-to-Simpy.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13107,7 +13107,7 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="3.2-Simpy">3.2 Simpy<a class="anchor-link" href="#3.2-Simpy">&#182;</a></h1>
+<h1 id="3.2-Introduction-to-Simpy">3.2 Introduction to Simpy<a class="anchor-link" href="#3.2-Introduction-to-Simpy">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -13117,7 +13117,7 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install simpy
@@ -13153,7 +13153,18 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.2.1-Simplest-possible-Simpy-model">3.2.1 Simplest possible Simpy model<a class="anchor-link" href="#3.2.1-Simplest-possible-Simpy-model">&#182;</a></h2><p>Simpy implements a simulation Environment() object that schedules all of the events and processing that occurs when building complex models. The simplest possible Simpy model is one that creates an environment and runs it for a known simulation period.</p>
+<h2 id="3.2.1-First-Steps">3.2.1 First Steps<a class="anchor-link" href="#3.2.1-First-Steps">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.2.1.1-The-simplest-Simpy-model">3.2.1.1 The simplest Simpy model<a class="anchor-link" href="#3.2.1.1-The-simplest-Simpy-model">&#182;</a></h3><p>Simpy implements an Environment() object that does the heavy work of scheduling processing events that occur when simulating complex models. The simplest possible Simpy model is one that creates and runs an empty simulation environment.</p>
 
 </div>
 </div>
@@ -13164,7 +13175,7 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
@@ -13185,12 +13196,9 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Simpy models are implemented as in the form of Python generators that yield Simpy events. The environment's <code>timeout(t)</code> event is one that you will use in many models. In Simpy, the statement</p>
-
-<pre><code>yield env.timeout(t)
-
-</code></pre>
-<p>returns control for a simulated time period of length <code>t</code>.  You need to register each generator</p>
+<h3 id="3.2.1.2-Adding-a-process">3.2.1.2 Adding a process<a class="anchor-link" href="#3.2.1.2-Adding-a-process">&#182;</a></h3><p>The components that make up a Simpy models are implemented using python gnerators. A generator begins with the <code>def</code> statement and must have at least one <code>yield</code> statement. The yield statement returns an event to the simulation environment. A frequently used events is <code>simpy.Environment.timeout()</code> which simulates the passage of time in a model component.</p>
+<p>Once the generator has been defined, an instance of the generator is passed to the simulation environment using the <code>simpy.Environment.process()</code> method.</p>
+<p>The following model defines a process model in which "Hello, World" is printed after a simulated 2.0 seconds have elapsed.</p>
 
 </div>
 </div>
@@ -13201,21 +13209,86 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
 
-<span class="k">def</span> <span class="nf">mymodel</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time =&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>          <span class="c1"># print current time in the simulation</span>
-    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>              <span class="c1"># take a time out of 1 time unit</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time =&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>          <span class="c1"># print current time in the simulation</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
+    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>           <span class="c1"># let 2.0 seconds of simulated time elapse</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World&quot;</span><span class="p">)</span>            <span class="c1"># print &quot;Hello, World&quot;</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">mymodel</span><span class="p">()</span>                     <span class="c1"># create an instance of the generator</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>            <span class="c1"># create a simulation environment instance</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">say_hello</span><span class="p">())</span>                <span class="c1"># register an instance of the process model</span>
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>                            <span class="c1"># run the simulaton</span>
+</pre></div>
 
-<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>             <span class="c1"># create the simulation environment</span>
-<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>                    <span class="c1"># tell the simulation environment which generators to process</span>
-<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>                             <span class="c1"># run the simulation</span>
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hello, World
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.2.1.3-Accessing-time">3.2.1.3 Accessing time<a class="anchor-link" href="#3.2.1.3-Accessing-time">&#182;</a></h3>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The environment variable <code>simpy.Environment.now</code> returns the current time in the simulation.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
+
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time =&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>             <span class="c1"># print current time in the simulation</span>
+    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>               <span class="c1"># take a time out of 1 time unit</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time =&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>             <span class="c1"># print current time in the simulation</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World&quot;</span><span class="p">)</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>                <span class="c1"># create a simulation environment instance</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">say_hello</span><span class="p">())</span>                 <span class="c1"># tell the simulation environment which generators to process</span>
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>                                <span class="c1"># run the simulation</span>
 </pre></div>
 
     </div>
@@ -13233,7 +13306,8 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>time = 0
-time = 1
+time = 2.0
+Hello, World
 </pre>
 </div>
 </div>
@@ -13249,7 +13323,19 @@ time = 1
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Simulations usually include multiple generators</p>
+<h3 id="3.2.1.4-Creating-multiple-instances-of-a-generator">3.2.1.4 Creating multiple instances of a generator<a class="anchor-link" href="#3.2.1.4-Creating-multiple-instances-of-a-generator">&#182;</a></h3>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The same generator can be used to create multiple instances of a model component. For example, this cell creates three instances of a generator. The generator is modified to add an identifier and variable time delay.</p>
+<p><strong>Carefully examine the output of this cell. Be sure you explain the order in which the print statements appear in the output.</strong></p>
 
 </div>
 </div>
@@ -13260,126 +13346,21 @@ time = 1
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
 
-<span class="k">def</span> <span class="nf">mymodel</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time =&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>          <span class="c1"># print current time in the simulation</span>
-    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>             <span class="c1"># take a time out of dt time unit</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time =&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>          <span class="c1"># print current time in the simulation</span>
-    
-<span class="n">modelA</span> <span class="o">=</span> <span class="n">mymodel</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">modelB</span> <span class="o">=</span> <span class="n">mymodel</span><span class="p">(</span><span class="mf">2.4</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s2">&quot;time =&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>         <span class="c1"># print current time in the simulation</span>
+    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>             <span class="c1"># take a time out of 1 time unit</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s2">&quot;says Hello, World at time&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
 
-<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>             <span class="c1"># create the simulation environment</span>
-<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">modelA</span><span class="p">)</span>                   <span class="c1"># tell the simulation environment which generators to process</span>
-<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">modelB</span><span class="p">)</span>                   <span class="c1"># tell the simulation environment which generators to process</span>
-<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>                             <span class="c1"># run the simulation</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>time = 0
-time = 0
-time = 2.4
-time = 3
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Exercise</strong>: Add a name to identify each process.</p>
-
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># modify the previous cell to add a unique name for each process.</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.2.1.1-Simpy-models-are-about-events">3.2.1.1 Simpy models are about events<a class="anchor-link" href="#3.2.1.1-Simpy-models-are-about-events">&#182;</a></h3>
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In Simpy, <code>env.timeout(t)</code> refers to an event. A timeout event tells the simulation environment to come back to me in a point <code>t</code> time units in the future.  A simulation runs until it runs until there are no more events to process.</p>
-
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
-
-<span class="k">def</span> <span class="nf">clock_model</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="k">while</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mf">10.0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;time =&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
-        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
-        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">dt</span>
-
-<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
-
-<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">clock_model</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
-<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">clock_model</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">))</span>
-<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>                <span class="c1"># create a simulation environment instance</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">))</span>         <span class="c1"># tell the simulation environment which generators to process</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>         <span class="c1"># tell the simulation environment which generators to process</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">))</span>         <span class="c1"># tell the simulation environment which generators to process</span>
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>                                <span class="c1"># run the simulation</span>
 </pre></div>
 
     </div>
@@ -13398,19 +13379,10 @@ time = 3
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>A time = 0
 B time = 0
-A time = 1.0
-A time = 2.0
-B time = 2.1
-A time = 3.0
-A time = 4.0
-B time = 4.2
-A time = 5.0
-A time = 6.0
-B time = 6.300000000000001
-A time = 7.0
-A time = 8.0
-B time = 8.4
-A time = 9.0
+C time = 0
+B says Hello, World at time 2.0
+A says Hello, World at time 3.0
+C says Hello, World at time 4.0
 </pre>
 </div>
 </div>
@@ -13426,7 +13398,8 @@ A time = 9.0
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Another way to end a simulation is use the <code>until</code> parameter in <code>env.run()</code></p>
+<h3 id="3.2.1.5-Running-a-simulation-for-a-known-period-of-time">3.2.1.5 Running a simulation for a known period of time<a class="anchor-link" href="#3.2.1.5-Running-a-simulation-for-a-known-period-of-time">&#182;</a></h3><p>The simulations presented above finish when all of the components making up the model have finished. In process modeling, however, some model components will simply cycle forever leading to a simulation that would never end. To handle this situation, the <code>simpy.Environment.run()</code> has an optional parameter <code>until</code> the causes the simulation to end a known point in time.</p>
+<p>The next modifies the generator to include an infinite loop, and controls the simulation period using the <code>until</code> parameter.</p>
 
 </div>
 </div>
@@ -13437,23 +13410,22 @@ A time = 9.0
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
 
-<span class="k">def</span> <span class="nf">clock_model</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s2">&quot;time =&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>          <span class="c1"># print current time in the simulation</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;time =&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
-        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
-        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">dt</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>          <span class="c1"># take a time out of 1 time unit</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="s2">&quot;says Hello, World at time&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
 
-<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
-
-<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">clock_model</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
-<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">clock_model</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">))</span>
-<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>                 <span class="c1"># create a simulation environment instance</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">))</span>          <span class="c1"># tell the simulation environment which generators to process</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>          <span class="c1"># tell the simulation environment which generators to process</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">))</span>          <span class="c1"># tell the simulation environment which generators to process</span>
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>                       <span class="c1"># run the simulation</span>
 </pre></div>
 
     </div>
@@ -13472,19 +13444,16 @@ A time = 9.0
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>A time = 0
 B time = 0
-A time = 1.0
-A time = 2.0
-B time = 2.1
-A time = 3.0
-A time = 4.0
-B time = 4.2
-A time = 5.0
-A time = 6.0
-B time = 6.300000000000001
-A time = 7.0
-A time = 8.0
-B time = 8.4
-A time = 9.0
+C time = 0
+B says Hello, World at time 2.0
+A says Hello, World at time 3.0
+C says Hello, World at time 4.0
+B says Hello, World at time 4.0
+A says Hello, World at time 6.0
+B says Hello, World at time 6.0
+C says Hello, World at time 8.0
+B says Hello, World at time 8.0
+A says Hello, World at time 9.0
 </pre>
 </div>
 </div>
@@ -13500,8 +13469,13 @@ A time = 9.0
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.2.2-Exercise">3.2.2 Exercise<a class="anchor-link" href="#3.2.2-Exercise">&#182;</a></h2><p>Write a Python generator that simulates the response of a differential equation describing concentration in a stirred tank reactor.</p>
-$$\frac{dC}{dt} = -k C + q(t)$$<p>where k = 1.0,  C(0) = 1.0 and q(t) = 0.5. Use Euler's approximation.</p>
+<h3 id="3.2.1.6-Logging-data">3.2.1.6 Logging data<a class="anchor-link" href="#3.2.1.6-Logging-data">&#182;</a></h3><p>Discrete-event simulations can create large amounts of data. A good practice is create a data log for the purpose of capturing data generated during the simulation. After the simulation is complete, the data log can be processed to create reports and charts to analyze results of the simulation.</p>
+<p>If not sure what to log, a good practice is log at least three items for each event:</p>
+<ul>
+<li><strong>who</strong> what object created this event</li>
+<li><strong>what</strong> a description of the event</li>
+<li><strong>when</strong> when the event occurred</li>
+</ul>
 
 </div>
 </div>
@@ -13512,12 +13486,101 @@ $$\frac{dC}{dt} = -k C + q(t)$$<p>where k = 1.0,  C(0) = 1.0 and q(t) = 0.5. Use
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
 
-<span class="n">q</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">data_log</span> <span class="o">=</span> <span class="p">[]</span>                             <span class="c1"># create an empty data log</span>
+
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>          <span class="c1"># take a time out of 1 time unit</span>
+        <span class="n">data_log</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">id</span><span class="p">,</span> <span class="s2">&quot;Hello, World&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">])</span>   <span class="c1"># log who (id), what (&quot;Hello, World&quot;), when (env.now)</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>                 <span class="c1"># create a simulation environment instance</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">))</span>          <span class="c1"># tell the simulation environment which generators to process</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>          <span class="c1"># tell the simulation environment which generators to process</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">))</span>          <span class="c1"># tell the simulation environment which generators to process</span>
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>                       <span class="c1"># run the simulation</span>
+
+<span class="k">for</span> <span class="n">data_record</span> <span class="ow">in</span> <span class="n">data_log</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data_record</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;B&#39;, &#39;Hello, World&#39;, 2.0]
+[&#39;A&#39;, &#39;Hello, World&#39;, 3.0]
+[&#39;C&#39;, &#39;Hello, World&#39;, 4.0]
+[&#39;B&#39;, &#39;Hello, World&#39;, 4.0]
+[&#39;A&#39;, &#39;Hello, World&#39;, 6.0]
+[&#39;B&#39;, &#39;Hello, World&#39;, 6.0]
+[&#39;C&#39;, &#39;Hello, World&#39;, 8.0]
+[&#39;B&#39;, &#39;Hello, World&#39;, 8.0]
+[&#39;A&#39;, &#39;Hello, World&#39;, 9.0]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.2.2-Example:-Simulating-a-Stirred-Tank-Reactor">3.2.2 Example: Simulating a Stirred Tank Reactor<a class="anchor-link" href="#3.2.2-Example:-Simulating-a-Stirred-Tank-Reactor">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.2.2.1-Model-development">3.2.2.1 Model development<a class="anchor-link" href="#3.2.2.1-Model-development">&#182;</a></h3><p>Write a Python generator to simulate the response of a differential equation describing concentration in a stirred tank reactor.</p>
+$$\frac{dC}{dt} = -k C + q(t)$$<p>where k = 1.0,  C(0) = 1.0 and q(t) has a constant value 0.5. Use can use the Euler approximation</p>
+$$C(t + \Delta t) = C(t) + \Delta t \left[ - k C(t) + q(t) \right]$$<p>The definition of the generator should allow specification of the time step, $\Delta t$, and the rate constant $k$.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Solution</span>
+
+<span class="kn">import</span> <span class="nn">simpy</span>
+
+<span class="k">def</span> <span class="nf">flow</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">q</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mf">100.0</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">reactor</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
     <span class="n">C</span> <span class="o">=</span> <span class="mf">1.0</span>
@@ -13527,8 +13590,9 @@ $$\frac{dC}{dt} = -k C + q(t)$$<p>where k = 1.0,  C(0) = 1.0 and q(t) = 0.5. Use
         <span class="n">C</span> <span class="o">=</span> <span class="n">C</span> <span class="o">-</span> <span class="n">k</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="n">q</span><span class="o">*</span><span class="n">dt</span>
         
 <span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">flow</span><span class="p">())</span>
 <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">reactor</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
-<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13596,6 +13660,155 @@ $$\frac{dC}{dt} = -k C + q(t)$$<p>where k = 1.0,  C(0) = 1.0 and q(t) = 0.5. Use
 4.8 0.5
 4.9 0.5
 5.0 0.5
+5.1 0.5
+5.2 0.5
+5.3 0.5
+5.4 0.5
+5.5 0.5
+5.6 0.5
+5.7 0.5
+5.8 0.5
+5.9 0.5
+6.0 0.5
+6.1 0.5
+6.2 0.5
+6.3 0.5
+6.4 0.5
+6.5 0.5
+6.6 0.5
+6.7 0.5
+6.8 0.5
+6.9 0.5
+7.0 0.5
+7.1 0.5
+7.2 0.5
+7.3 0.5
+7.4 0.5
+7.5 0.5
+7.6 0.5
+7.7 0.5
+7.8 0.5
+7.9 0.5
+8.0 0.5
+8.1 0.5
+8.2 0.5
+8.3 0.5
+8.4 0.5
+8.5 0.5
+8.6 0.5
+8.7 0.5
+8.8 0.5
+8.9 0.5
+9.0 0.5
+9.1 0.5
+9.2 0.5
+9.3 0.5
+9.4 0.5
+9.5 0.5
+9.6 0.5
+9.7 0.5
+9.8 0.5
+9.9 0.5
+10.0 0.5
+10.1 0.5
+10.2 0.5
+10.3 0.5
+10.4 0.5
+10.5 0.5
+10.6 0.5
+10.7 0.5
+10.8 0.5
+10.9 0.5
+11.0 0.5
+11.1 0.5
+11.2 0.5
+11.3 0.5
+11.4 0.5
+11.5 0.5
+11.6 0.5
+11.7 0.5
+11.8 0.5
+11.9 0.5
+12.0 0.5
+12.1 0.5
+12.2 0.5
+12.3 0.5
+12.4 0.5
+12.5 0.5
+12.6 0.5
+12.7 0.5
+12.8 0.5
+12.9 0.5
+13.0 0.5
+13.1 0.5
+13.2 0.5
+13.3 0.5
+13.4 0.5
+13.5 0.5
+13.6 0.5
+13.7 0.5
+13.8 0.5
+13.9 0.5
+14.0 0.5
+14.1 0.5
+14.2 0.5
+14.3 0.5
+14.4 0.5
+14.5 0.5
+14.6 0.5
+14.7 0.5
+14.8 0.5
+14.9 0.5
+15.0 0.5
+15.1 0.5
+15.2 0.5
+15.3 0.5
+15.4 0.5
+15.5 0.5
+15.6 0.5
+15.7 0.5
+15.8 0.5
+15.9 0.5
+16.0 0.5
+16.1 0.5
+16.2 0.5
+16.3 0.5
+16.4 0.5
+16.5 0.5
+16.6 0.5
+16.7 0.5
+16.8 0.5
+16.9 0.5
+17.0 0.5
+17.1 0.5
+17.2 0.5
+17.3 0.5
+17.4 0.5
+17.5 0.5
+17.6 0.5
+17.7 0.5
+17.8 0.5
+17.9 0.5
+18.0 0.5
+18.1 0.5
+18.2 0.5
+18.3 0.5
+18.4 0.5
+18.5 0.5
+18.6 0.5
+18.7 0.5
+18.8 0.5
+18.9 0.5
+19.0 0.5
+19.1 0.5
+19.2 0.5
+19.3 0.5
+19.4 0.5
+19.5 0.5
+19.6 0.5
+19.7 0.5
+19.8 0.5
+19.9 0.5
 </pre>
 </div>
 </div>
@@ -13611,7 +13824,489 @@ $$\frac{dC}{dt} = -k C + q(t)$$<p>where k = 1.0,  C(0) = 1.0 and q(t) = 0.5. Use
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.2.3-Monitoring">3.2.3 Monitoring<a class="anchor-link" href="#3.2.3-Monitoring">&#182;</a></h2><p>The purpose of simulation is to gather information on systems behave. For that  purpose, we need to monitor. An easy way to do this is to append data to a log.</p>
+<h3 id="3.2.2.2-Exercise">3.2.2.2 Exercise<a class="anchor-link" href="#3.2.2.2-Exercise">&#182;</a></h3><p>Extend stirred tank model by adding the following features:</p>
+<ul>
+<li>Modify the flow simulation so that the flowrate initially starts at 0.0, switches to a value of 0.5 at t=1.0, then back to 0.0 five time units later.</li>
+<li>Add a data log to records time and the values of concentration, $C$, and flowrate $q$.</li>
+<li>When the simulation is complete, convert the data log to a numpy array, then create plots of $C(t)$ and $q(t)$. Take time to label axes and, if necessary, add a legend. </li>
+<li>The whole thing should run in a single cell</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Your solution goes in this cell</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.2.3-Next-steps-with-Simpy">3.2.3 Next steps with Simpy<a class="anchor-link" href="#3.2.3-Next-steps-with-Simpy">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.2.3.1-Working-many-simulation-objects">3.2.3.1 Working many simulation objects<a class="anchor-link" href="#3.2.3.1-Working-many-simulation-objects">&#182;</a></h3><p>Sometimes we wish to do simulations involving many instances of an object type. For these situations it useful to use use Python lists and loops to create multiple instances of a generator and register them with the simulation environment.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">data_log</span> <span class="o">=</span> <span class="p">[]</span>                         <span class="c1"># create an empty data log</span>
+
+<span class="k">def</span> <span class="nf">person</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>      <span class="c1"># take a time out of 1 time unit</span>
+        <span class="n">data_log</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">id</span><span class="p">,</span> <span class="s2">&quot;Hello, World&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">])</span>   <span class="c1"># log who (id), what (&quot;Hello, World&quot;), when (env.now)</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>             <span class="c1"># create a simulation environment instance</span>
+
+<span class="n">population</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">person</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)))</span>
+    
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>                   <span class="c1"># run the simulation</span>
+
+<span class="k">for</span> <span class="n">data_record</span> <span class="ow">in</span> <span class="n">data_log</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data_record</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[3, &#39;Hello, World&#39;, 1.083180998934525]
+[1, &#39;Hello, World&#39;, 1.8277667545187293]
+[0, &#39;Hello, World&#39;, 2.034831190159925]
+[3, &#39;Hello, World&#39;, 2.16636199786905]
+[4, &#39;Hello, World&#39;, 2.2018086943526076]
+[3, &#39;Hello, World&#39;, 3.2495429968035747]
+[1, &#39;Hello, World&#39;, 3.6555335090374586]
+[0, &#39;Hello, World&#39;, 4.06966238031985]
+[2, &#39;Hello, World&#39;, 4.08691031878395]
+[3, &#39;Hello, World&#39;, 4.3327239957381]
+[4, &#39;Hello, World&#39;, 4.403617388705215]
+[3, &#39;Hello, World&#39;, 5.4159049946726245]
+[1, &#39;Hello, World&#39;, 5.483300263556188]
+[0, &#39;Hello, World&#39;, 6.104493570479775]
+[3, &#39;Hello, World&#39;, 6.4990859936071494]
+[4, &#39;Hello, World&#39;, 6.605426083057823]
+[1, &#39;Hello, World&#39;, 7.311067018074917]
+[3, &#39;Hello, World&#39;, 7.582266992541674]
+[0, &#39;Hello, World&#39;, 8.1393247606397]
+[2, &#39;Hello, World&#39;, 8.1738206375679]
+[3, &#39;Hello, World&#39;, 8.6654479914762]
+[4, &#39;Hello, World&#39;, 8.80723477741043]
+[1, &#39;Hello, World&#39;, 9.138833772593646]
+[3, &#39;Hello, World&#39;, 9.748628990410724]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">data_log</span> <span class="o">=</span> <span class="p">[]</span>                         <span class="c1"># create an empty data log</span>
+
+<span class="k">def</span> <span class="nf">person</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">delay</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>      <span class="c1"># take a time out of 1 time unit</span>
+        <span class="n">data_log</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">id</span><span class="p">,</span> <span class="s2">&quot;Hello, World&quot;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">])</span>   <span class="c1"># log who (id), what (&quot;Hello, World&quot;), when (env.now)</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>             <span class="c1"># create a simulation environment instance</span>
+
+<span class="n">population</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">person</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)))</span>
+    
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>                   <span class="c1"># run the simulation</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_log</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">])</span>           <span class="c1"># convert the data log to a Pandas dataframe</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>                                                            <span class="c1"># print the first five lines</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[49]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>event</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Hello, World</td>
+      <td>0.462251</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>Hello, World</td>
+      <td>0.924501</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Hello, World</td>
+      <td>1.244519</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>Hello, World</td>
+      <td>1.386752</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>Hello, World</td>
+      <td>1.849003</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+      <td>Hello, World</td>
+      <td>2.311253</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>3</td>
+      <td>Hello, World</td>
+      <td>2.489038</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2</td>
+      <td>Hello, World</td>
+      <td>2.512738</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0</td>
+      <td>Hello, World</td>
+      <td>2.773504</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0</td>
+      <td>Hello, World</td>
+      <td>3.235755</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The following cells demonstrates a very simple visualization of the data from the Pandas data frame.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[52]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;matplotlib.lines.Line2D at 0x7fea0b0f9350&gt;]</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pandas make it convenient to sort and select events out of the data log. As an example, the next selects all events corresponding for the object id "3".</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[54]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>event</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Hello, World</td>
+      <td>1.244519</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>3</td>
+      <td>Hello, World</td>
+      <td>2.489038</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>3</td>
+      <td>Hello, World</td>
+      <td>3.733556</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>3</td>
+      <td>Hello, World</td>
+      <td>4.978075</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>3</td>
+      <td>Hello, World</td>
+      <td>6.222594</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>3</td>
+      <td>Hello, World</td>
+      <td>7.467113</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>3</td>
+      <td>Hello, World</td>
+      <td>8.711632</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>3</td>
+      <td>Hello, World</td>
+      <td>9.956150</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.2.3.2-Visualizing-data-logs-with-Pandas">3.2.3.2 Visualizing data logs with Pandas<a class="anchor-link" href="#3.2.3.2-Visualizing-data-logs-with-Pandas">&#182;</a></h3><p>One of the challenges of discrete-event simulations, especially those involving many simulation objects interacting in complex ways, is to create reports and charts that summarize the resuts. Fortunately, Python is very well suited to managing large data sets. One of the most useful Python tools for data analysis is widely available <a href="https://pandas.pydata.org/docs/">Pandas</a> library. There excellent <a href="https://www.datacamp.com/community/tutorials/pandas-tutorial-dataframe-python">tutorials</a> to help you get started with Pandas.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.2.4-Monitoring">3.2.4 Monitoring<a class="anchor-link" href="#3.2.4-Monitoring">&#182;</a></h2><p>The purpose of simulation is to gather information on systems behave. For that  purpose, we need to monitor. An easy way to do this is to append data to a log.</p>
 
 </div>
 </div>
@@ -13695,7 +14390,7 @@ $$\frac{dC}{dt} = -k C + q(t)$$<p>where k = 1.0,  C(0) = 1.0 and q(t) = 0.5. Use
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.2.4-Creating-Events">3.2.4 Creating Events<a class="anchor-link" href="#3.2.4-Creating-Events">&#182;</a></h2>
+<h2 id="3.2.5-Creating-Events">3.2.5 Creating Events<a class="anchor-link" href="#3.2.5-Creating-Events">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13797,7 +14492,7 @@ $$\frac{dC}{dt} = -k C + q(t)$$<p>where k = 1.0,  C(0) = 1.0 and q(t) = 0.5. Use
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.2.5-Modeling-COVID">3.2.5 Modeling COVID<a class="anchor-link" href="#3.2.5-Modeling-COVID">&#182;</a></h2>
+<h2 id="3.2.6-Modeling-COVID">3.2.6 Modeling COVID<a class="anchor-link" href="#3.2.6-Modeling-COVID">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13824,18 +14519,16 @@ $$\text{Susceptible}
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
 
 <span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
 
-<span class="n">data_log</span> <span class="o">=</span> <span class="p">[[]]</span>
-
 <span class="k">def</span> <span class="nf">infect</span><span class="p">():</span>
     <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">:</span>
         <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">infect_person</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">succeed</span><span class="p">()</span>
         <span class="n">k</span> <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
@@ -13849,112 +14542,10 @@ $$\text{Susceptible}
 <span class="n">population</span> <span class="o">=</span> <span class="p">[</span><span class="n">person</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
 <span class="n">infect_person</span> <span class="o">=</span> <span class="p">[</span><span class="n">env</span><span class="o">.</span><span class="n">event</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
 
-<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">infect</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.2.5.1-Modeling-with-Python-Classes">3.2.5.1 Modeling with Python Classes<a class="anchor-link" href="#3.2.5.1-Modeling-with-Python-Classes">&#182;</a></h3><p>The new problem that we have is accessing the value of C outside the context of the generator. We'd like to do this because other process units may depend on that concentration.</p>
-
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-
-
-
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">q</span> <span class="o">=</span> <span class="mf">0.5</span>
-
-<span class="n">data_log</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="k">def</span> <span class="nf">reactor</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-    <span class="n">C</span> <span class="o">=</span> <span class="mf">1.0</span>
-    <span class="n">env</span><span class="o">.</span><span class="n">event</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">data_log</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="n">C</span><span class="p">])</span>
-        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
-        <span class="n">C</span> <span class="o">=</span> <span class="n">C</span> <span class="o">-</span> <span class="n">k</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">C</span> <span class="o">+</span> <span class="n">q</span><span class="o">*</span><span class="n">dt</span>
-        
-<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
-<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">reactor</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
-<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-
-<span class="n">data</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_log</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-
-
-
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[82]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
-
-<span class="n">q</span> <span class="o">=</span> <span class="mf">0.5</span>
-
-<span class="k">class</span> <span class="nc">Reactor</span><span class="p">():</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span> <span class="n">k</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="mf">1.0</span>
-        
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">C</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">C</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">C</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">+</span> <span class="n">q</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
-
-<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">Reactor</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">Reactor</span><span class="p">(</span><span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">run</span><span class="p">())</span>
-<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">run</span><span class="p">())</span>
-<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">infect</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">person</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13971,288 +14562,30 @@ $$\text{Susceptible}
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0 1.0
-0 1.0
-0.1 0.91
-0.2 0.9
-0.2 0.83
-0.3 0.77
-0.4 0.82
-0.4 0.71
-0.5 0.66
-0.6 0.62
-0.6 0.76
-0.7 0.58
-0.8 0.55
-0.8 0.7
-0.9 0.52
-1.0 0.5
-1.0 0.66
-1.1 0.48
-1.2 0.63
-1.2 0.46
-1.3 0.45
-1.4 0.6
-1.4 0.43
-1.5 0.42
-1.6 0.58
-1.6 0.41
-1.7 0.41
-1.8 0.57
-1.8 0.4
-1.9 0.39
-2.0 0.55
-2.0 0.39
-2.1 0.38
-2.2 0.54
-2.2 0.38
-2.3 0.38
-2.4 0.53
-2.4 0.37
-2.5 0.37
-2.6 0.53
-2.6 0.37
-2.7 0.37
-2.8 0.52
-2.8 0.37
-2.9 0.37
-3.0 0.52
-3.0 0.36
-3.1 0.36
-3.2 0.51
-3.2 0.36
-3.3 0.36
-3.4 0.51
-3.4 0.36
-3.5 0.36
-3.6 0.51
-3.6 0.36
-3.7 0.36
-3.8 0.51
-3.8 0.36
-3.9 0.36
-4.0 0.51
-4.0 0.36
-4.1 0.36
-4.2 0.5
-4.2 0.36
-4.3 0.36
-4.4 0.36
-4.4 0.5
-4.5 0.36
-4.6 0.36
-4.6 0.5
-4.7 0.36
-4.8 0.36
-4.8 0.5
-4.9 0.36
-5.0 0.36
-5.0 0.5
-5.1 0.36
-5.2 0.36
-5.2 0.5
-5.3 0.36
-5.4 0.36
-5.4 0.5
-5.5 0.36
-5.6 0.36
-5.6 0.5
-5.7 0.36
-5.8 0.36
-5.8 0.5
-5.9 0.36
-6.0 0.36
-6.0 0.5
-6.1 0.36
-6.2 0.36
-6.2 0.5
-6.3 0.36
-6.4 0.36
-6.4 0.5
-6.5 0.36
-6.6 0.36
-6.6 0.5
-6.7 0.36
-6.8 0.36
-6.8 0.5
-6.9 0.36
-7.0 0.36
-7.0 0.5
-7.1 0.36
-7.2 0.36
-7.2 0.5
-7.3 0.36
-7.4 0.36
-7.4 0.5
-7.5 0.36
-7.6 0.36
-7.6 0.5
-7.7 0.36
-7.8 0.36
-7.8 0.5
-7.9 0.36
-8.0 0.36
-8.0 0.5
-8.1 0.36
-8.2 0.36
-8.2 0.5
-8.3 0.36
-8.4 0.36
-8.4 0.5
-8.5 0.36
-8.6 0.36
-8.6 0.5
-8.7 0.36
-8.8 0.36
-8.8 0.5
-8.9 0.36
-9.0 0.36
-9.0 0.5
-9.1 0.36
-9.2 0.36
-9.2 0.5
-9.3 0.36
-9.4 0.36
-9.4 0.5
-9.5 0.36
-9.6 0.36
-9.6 0.5
-9.7 0.36
-9.8 0.36
-9.8 0.5
-9.9 0.36
-10.0 0.36
-10.0 0.5
+<pre>0 infected at time 1
+1 infected at time 2
+2 infected at time 3
+3 infected at time 4
+4 infected at time 5
+5 infected at time 6
+6 infected at time 7
+7 infected at time 8
+8 infected at time 9
+9 infected at time 10
+10 infected at time 11
+11 infected at time 12
+12 infected at time 13
+13 infected at time 14
+14 infected at time 15
+15 infected at time 16
+16 infected at time 17
+17 infected at time 18
+18 infected at time 19
+19 infected at time 20
 </pre>
 </div>
 </div>
 
-</div>
-</div>
-
-</div>
-
-
-
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[79]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
-
-<span class="n">q</span> <span class="o">=</span> <span class="mf">0.5</span>
-
-<span class="k">def</span> <span class="nf">historian</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">C</span><span class="p">)</span>
-        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">Reactor</span><span class="p">():</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span> <span class="n">k</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="mf">1.0</span>
-        
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">C</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">C</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">+</span> <span class="n">q</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
-
-<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">Reactor</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
-<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">run</span><span class="p">())</span>
-<span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">historian</span><span class="p">(</span><span class="mf">0.3</span><span class="p">))</span>
-<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0 1.0
-0.3 0.9
-0.6 0.82
-0.8999999999999999 0.7047999999999999
-1.2 0.6638399999999999
-1.5 0.6048575999999999
-1.8 0.5671088639999999
-2.1 0.5536870911999999
-2.4 0.54294967296
-2.6999999999999997 0.5274877906944
-2.9999999999999996 0.52199023255552
-3.2999999999999994 0.5140737488355328
-3.599999999999999 0.5112589990684262
-3.899999999999999 0.5072057594037928
-4.199999999999999 0.5057646075230342
-4.499999999999999 0.5036893488147418
-4.799999999999999 0.5029514790517935
-5.099999999999999 0.5018889465931478
-5.399999999999999 0.5015111572745182
-5.699999999999998 0.5009671406556917
-5.999999999999998 0.5007737125245534
-6.299999999999998 0.5004951760157141
-6.599999999999998 0.5003961408125713
-6.899999999999998 0.5002535301200457
-7.1999999999999975 0.5002028240960366
-7.499999999999997 0.5001298074214634
-7.799999999999997 0.5001038459371707
-8.099999999999998 0.5000664613997893
-8.399999999999999 0.5000531691198314
-8.7 0.5000340282366922
-9.0 0.5000272225893537
-9.3 0.5000174224571864
-9.600000000000001 0.5000111503725992
-9.900000000000002 0.5000089202980794
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.2.5.2-COVID-Model">3.2.5.2 COVID Model<a class="anchor-link" href="#3.2.5.2-COVID-Model">&#182;</a></h3>
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
-
-<span class="kn">import</span> <span class="nn">random</span>
-
-<span class="k">class</span> <span class="nc">person</span><span class="p">()</span>
-    <span class="nb">print</span>
-    <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">))</span>
-</pre></div>
-
-    </div>
 </div>
 </div>
 
@@ -14265,7 +14598,7 @@ $$\text{Susceptible}
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/CBE40455-2020/03.01-Python-Generators.html">3.1 Python Generators</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/CBE40455-2020/03.10-Agent-based-campus-covid-model.html">3.10 Agent based model for control of COVID-19 on a college campus</a><p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/03.02-Simpy.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/03.02-Simpy.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/CBE40455-2020/03.01-Python-Generators.html">3.1 Python Generators</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/CBE40455-2020/03.10-Agent-based-campus-covid-model.html">3.10 Agent based model for control of COVID-19 on a college campus</a><p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/03.02-Introduction-to-Simpy.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/03.02-Introduction-to-Simpy.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>

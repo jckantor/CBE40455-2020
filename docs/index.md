@@ -12,9 +12,10 @@
 - [2.1 Campus SIR Modeling](https://jckantor.github.io/CBE40455-2020/02.01-Campus-SIR-modeling.html)
 - [2.2 Campus SEIR Modeling](https://jckantor.github.io/CBE40455-2020/02.02-Campus-SEIR-modeling.html)
 - [2.3 Campus Re-opening Model](https://jckantor.github.io/CBE40455-2020/02.03-Campus-reopening.html)
+- [2.4 Linear Analysis of Campus Reopening](https://jckantor.github.io/CBE40455-2020/02.04-Linear-Analysis-of-Campus-Reopening.html)
 
 ### [Chapter 3.0 Introduction to Discrete Event Modeling](https://jckantor.github.io/CBE40455-2020/03.00-Introduction-to-Discrete-Event-Modeling.html)
 - [3.1 Python Generators](https://jckantor.github.io/CBE40455-2020/03.01-Python-Generators.html)
-- [3.2 Simpy](https://jckantor.github.io/CBE40455-2020/03.02-Simpy.html)
+- [3.2 Introduction to Simpy](https://jckantor.github.io/CBE40455-2020/03.02-Introduction-to-Simpy.html)
 - [3.10 Agent based model for control of COVID-19 on a college campus](https://jckantor.github.io/CBE40455-2020/03.10-Agent-based-campus-covid-model.html)
 
