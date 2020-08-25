@@ -13095,7 +13095,7 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/CBE40455-2020/03.02-Introduction-to-Simpy.html">3.2 Introduction to Simpy</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/CBE40455-2020/03.10-Agent-based-campus-covid-model.html">3.10 Agent based model for control of COVID-19 on a college campus</a><p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/03.03-Simpy.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/03.03-Simpy.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/CBE40455-2020/03.02-Introduction-to-Simpy.html">3.2 Introduction to Simpy</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/CBE40455-2020/03.10-Agent-based-campus-covid-model.html">3.10 Agent based model for control of COVID-19 on a college campus</a><p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/03.03-Agent-Based-Models.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/03.03-Agent-Based-Models.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>
@@ -13234,10 +13234,12 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[108]:</div>
+<div class="prompt input_prompt">In&nbsp;[183]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">roomba_data</span> <span class="o">=</span> <span class="p">[</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">roomba_data</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span>
     <span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
     <span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
@@ -13259,7 +13261,7 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[108]:</div>
+    <div class="prompt output_prompt">Out[183]:</div>
 
 
 
@@ -13336,7 +13338,7 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.3.3-One-Roomba">3.3.3 One Roomba<a class="anchor-link" href="#3.3.3-One-Roomba">&#182;</a></h2><p>The first challenge is to model the performance of a single Roomba. Our first attempt at a model consists of a simple Python generator. The data log consists of start and finish of each charge and cleaning cycle. For this first attempt, we'll assume a charging station is always available when needed.</p>
+<h2 id="3.3.3-One-Roomba">3.3.3 One Roomba<a class="anchor-link" href="#3.3.3-One-Roomba">&#182;</a></h2><p>The first challenge is to model the performance of a single Roomba. Our first attempt at a model consists of a simple Python generator. The data log consists of start and finish of each charge and cleaning cycle. For this first attempt, we'll assume a charging station is always available when needed, and we'll create just one instance of a Roomba to get started.</p>
 
 </div>
 </div>
@@ -13347,14 +13349,18 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[91]:</div>
+<div class="prompt input_prompt">In&nbsp;[182]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span> 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
+<span class="c1"># create an empty data log</span>
 <span class="n">data_log</span> <span class="o">=</span> <span class="p">[]</span>
 
+<span class="c1"># roomba model is encapsulated as a Python generator. The id, charge_time, and clean_time</span>
+<span class="c1"># parameters are the information needed to specify a particular instance of a Roomba.</span>
+<span class="c1"># The model will log the begin and end of each charge and clean cycle</span>
 <span class="k">def</span> <span class="nf">roomba_model</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">charge_time</span><span class="p">,</span> <span class="n">clean_time</span><span class="p">):</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="n">tic</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span>
@@ -13366,14 +13372,18 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
         <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">clean_time</span><span class="p">)</span>
         <span class="n">toc</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span>
         <span class="n">data_log</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">id</span><span class="p">,</span> <span class="s2">&quot;cleaning&quot;</span><span class="p">,</span> <span class="n">tic</span><span class="p">,</span> <span class="n">toc</span><span class="p">])</span>
-        
+
+<span class="c1"># create the simulation environment</span>
 <span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
 
+<span class="c1"># create the processes being simuulated</span>
 <span class="n">roomba</span> <span class="o">=</span> <span class="n">roomba_model</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
-
 <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">roomba</span><span class="p">)</span>
 
+<span class="c1"># run the simulation</span>
 <span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="c1"># convert the data_log to a Pandas DataFrame and display</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_log</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">,</span> <span class="s2">&quot;begin&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">])</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
@@ -13499,7 +13509,7 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.3.4-Extracting-data-from-the-data-log">3.3.4 Extracting data from the data log<a class="anchor-link" href="#3.3.4-Extracting-data-from-the-data-log">&#182;</a></h2><p>Let's extract some performance indicators from the data log.</p>
+<h2 id="3.3.4-Adding-a-full-complement-of-Roombas">3.3.4 Adding a full complement of Roombas<a class="anchor-link" href="#3.3.4-Adding-a-full-complement-of-Roombas">&#182;</a></h2><p>The next step is to include all of the available Roombas to the simulation. We do this by looping over the data set that describes the available devices. For each interation, an instance of the Roomba model is created and an associated process added to the simulation environment.</p>
 
 </div>
 </div>
@@ -13510,102 +13520,7 @@ content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on 
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[95]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># extract list of unique roombas</span>
-<span class="n">roombas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">roombas</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;A&#39;]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-
-
-
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[104]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># time spent charging</span>
-<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">roombas</span><span class="p">:</span>
-    <span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">==</span><span class="n">r</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;event&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;charging&quot;</span><span class="p">)</span>
-    <span class="n">dt</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s2">&quot;begin&quot;</span><span class="p">]</span>
-    <span class="n">t_charge</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;charge time =&quot;</span><span class="p">,</span> <span class="n">t_charge</span><span class="p">)</span>
-    
-<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">roombas</span><span class="p">:</span>
-    <span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">==</span><span class="n">r</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;event&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;cleaning&quot;</span><span class="p">)</span>
-    <span class="n">dt</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s2">&quot;begin&quot;</span><span class="p">]</span>
-    <span class="n">t_clean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;clean time =&quot;</span><span class="p">,</span> <span class="n">t_clean</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>A charge time = 5.0
-A clean time = 10.0
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-
-
-
-    
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.3.5-Adding-Roombas">3.3.5 Adding Roombas<a class="anchor-link" href="#3.3.5-Adding-Roombas">&#182;</a></h2>
-</div>
-</div>
-</div>
-
-
-
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[177]:</div>
+<div class="prompt input_prompt">In&nbsp;[192]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span> 
@@ -14113,7 +14028,8 @@ A clean time = 10.0
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.3.6-Extracting-data-from-data-logs">3.3.6 Extracting data from data logs<a class="anchor-link" href="#3.3.6-Extracting-data-from-data-logs">&#182;</a></h2>
+<h2 id="3.3.5-Extracting-data-from-data-logs">3.3.5 Extracting data from data logs<a class="anchor-link" href="#3.3.5-Extracting-data-from-data-logs">&#182;</a></h2><p>As we can see, one property of discrete-event simulations is that they can produce voluminous amounts of data. Direct examination of the data log is generally difficult, and not well suited to measuring system performance. In this section we demonstrate several methods for processing the data log to determine if the performance target of 48 cleaning hours is being acheived.</p>
+
 </div>
 </div>
 </div>
@@ -14124,7 +14040,7 @@ A clean time = 10.0
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.3.6.1-Writing-your-own-methods">3.3.6.1 Writing your own methods<a class="anchor-link" href="#3.3.6.1-Writing-your-own-methods">&#182;</a></h3>
+<h3 id="3.3.5.1-Writing-your-own-methods">3.3.5.1 Writing your own methods<a class="anchor-link" href="#3.3.5.1-Writing-your-own-methods">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14134,25 +14050,29 @@ A clean time = 10.0
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[178]:</div>
+<div class="prompt input_prompt">In&nbsp;[196]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># time spent charging</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get a sorted list of unique roomba names. This is extracted from the data log</span>
 <span class="n">roombas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]))</span>
 <span class="n">roombas</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="c1"># total charge time</span>
+<span class="n">total_charge_time</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">roombas</span><span class="p">:</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">==</span><span class="n">r</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;event&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;charging&quot;</span><span class="p">)</span>
     <span class="n">dt</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s2">&quot;begin&quot;</span><span class="p">]</span>
-    <span class="n">t_charge</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;charge time =&quot;</span><span class="p">,</span> <span class="n">t_charge</span><span class="p">)</span>
+    <span class="n">total_charge_time</span> <span class="o">+=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">()</span>
-
+<span class="c1"># total clean time</span>
+<span class="n">total_clean_time</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">roombas</span><span class="p">:</span>
     <span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">==</span><span class="n">r</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;event&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;cleaning&quot;</span><span class="p">)</span>
     <span class="n">dt</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="s2">&quot;begin&quot;</span><span class="p">]</span>
-    <span class="n">t_clean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;clean time =&quot;</span><span class="p">,</span> <span class="n">t_clean</span><span class="p">)</span>
+    <span class="n">total_clean_time</span>  <span class="o">+=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;total charge time =&quot;</span><span class="p">,</span> <span class="n">total_charge_time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;total clean time =&quot;</span><span class="p">,</span> <span class="n">total_clean_time</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14169,17 +14089,8 @@ A clean time = 10.0
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>A charge time = 5.0
-B charge time = 4.0
-C charge time = 4.800000000000002
-D charge time = 4.200000000000001
-E charge time = 5.0
-
-A clean time = 10.0
-B clean time = 10.5
-C clean time = 10.0
-D clean time = 10.5
-E clean time = 10.799999999999997
+<pre>total charge time = 23.0
+total clean time = 51.8
 </pre>
 </div>
 </div>
@@ -14195,7 +14106,8 @@ E clean time = 10.799999999999997
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.3.6.2-Cut-and-Paste-into-Google-Sheets">3.3.6.2 Cut and Paste into Google Sheets<a class="anchor-link" href="#3.3.6.2-Cut-and-Paste-into-Google-Sheets">&#182;</a></h3>
+<h3 id="3.3.5.2-Cut-and-Paste-into-Google-Sheets">3.3.5.2 Cut and Paste into Google Sheets<a class="anchor-link" href="#3.3.5.2-Cut-and-Paste-into-Google-Sheets">&#182;</a></h3><p>Cut and paste the data log into a Google Sheet. Use the pivot table feature to compute the total charge and total cleam times.</p>
+
 </div>
 </div>
 </div>
@@ -14206,7 +14118,7 @@ E clean time = 10.799999999999997
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.3.6.3-Using-Pandas-pivot-tables">3.3.6.3 Using Pandas pivot tables<a class="anchor-link" href="#3.3.6.3-Using-Pandas-pivot-tables">&#182;</a></h3>
+<h3 id="3.3.5.3-Using-Pandas-pivot-tables">3.3.5.3 Using Pandas pivot tables<a class="anchor-link" href="#3.3.5.3-Using-Pandas-pivot-tables">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14217,7 +14129,7 @@ E clean time = 10.799999999999997
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Using Pandas pivot table</p>
+<p>The Pandas library includes an extraordinarily useful <code>pivot_table()</code> function that can be used to process many different kinds of data that would normally be displayed as spreadsheets. The following cell demonstrates the use of <code>pivot_table()</code> to compute the total charging and cleaning time found in the simulation.</p>
 
 </div>
 </div>
@@ -14228,13 +14140,17 @@ E clean time = 10.799999999999997
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[181]:</div>
+<div class="prompt input_prompt">In&nbsp;[197]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import numpy to gain access to a sum function</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
+<span class="c1"># add a new column to the DataFrame computing the desired data</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;begin&quot;</span><span class="p">]</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">}</span> <span class="p">)</span>
+
+<span class="c1"># create a pivot table that sums up the time spent on each event type.</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;event&quot;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">}</span> <span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14247,7 +14163,7 @@ E clean time = 10.799999999999997
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[181]:</div>
+    <div class="prompt output_prompt">Out[197]:</div>
 
 
 
@@ -14270,60 +14186,21 @@ E clean time = 10.799999999999997
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th></th>
       <th>time</th>
     </tr>
     <tr>
-      <th>id</th>
       <th>event</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th rowspan="2" valign="top">A</th>
       <th>charging</th>
-      <td>5.0</td>
+      <td>23.0</td>
     </tr>
     <tr>
       <th>cleaning</th>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">B</th>
-      <th>charging</th>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>cleaning</th>
-      <td>10.5</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">C</th>
-      <th>charging</th>
-      <td>4.8</td>
-    </tr>
-    <tr>
-      <th>cleaning</th>
-      <td>10.0</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">D</th>
-      <th>charging</th>
-      <td>4.2</td>
-    </tr>
-    <tr>
-      <th>cleaning</th>
-      <td>10.5</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">E</th>
-      <th>charging</th>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>cleaning</th>
-      <td>10.8</td>
+      <td>51.8</td>
     </tr>
   </tbody>
 </table>
@@ -14343,7 +14220,7 @@ E clean time = 10.799999999999997
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.3.7-Introducing-Shared-Resources">3.3.7 Introducing Shared Resources<a class="anchor-link" href="#3.3.7-Introducing-Shared-Resources">&#182;</a></h2><p>A charging station is an example of a <strong>shared resource</strong>. There are three types of resources that can be modeled in Simpy:</p>
+<h2 id="3.3.6-Introducing-shared-resources">3.3.6 Introducing shared resources<a class="anchor-link" href="#3.3.6-Introducing-shared-resources">&#182;</a></h2><p>A charging station is an example of a <strong>shared resource</strong>. There are three types of resources that can be modeled in Simpy:</p>
 <ul>
 <li><strong>Resource</strong> Resources that can only used by a limited number of processes at a time.</li>
 <li><strong>Stores</strong> Resources that can store or release Python objects.</li>
@@ -14361,7 +14238,24 @@ E clean time = 10.799999999999997
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The first step is to add the resource to the model. Resources are added as Simpy <code>Resource</code> object.  The user of the resource must request and release the resource.</p>
+<h2 id="3.3.7-Charging-stations-as-shared-resources">3.3.7 Charging stations as shared resources<a class="anchor-link" href="#3.3.7-Charging-stations-as-shared-resources">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The next cell shows how a charging station can be incorporated into the simulation as a shared resource. Three changes required:</p>
+<ul>
+<li>Create a simply.Resource() by specifying the simulation environment and resource capacity. </li>
+<li>The Roomba model must create request for use of a charger. The request is specified in a subsequent <code>yield</code> statement. Execution resumes once a charger becomes available.</li>
+<li>When finished with a charger, the model must release the charger so that it is available for use in other model instances.</li>
+</ul>
+<p>The following cell implements charger system with a capacity of 1. Examine the data log to verify that only one Roomba is charging at any point in time.</p>
 
 </div>
 </div>
@@ -14372,7 +14266,7 @@ E clean time = 10.799999999999997
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[174]:</div>
+<div class="prompt input_prompt">In&nbsp;[204]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span> 
@@ -14706,12 +14600,54 @@ E clean time = 10.799999999999997
 
 
     
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.3.8-How-many-charging-stations-are-required?">3.3.8 How many charging stations are required?<a class="anchor-link" href="#3.3.8-How-many-charging-stations-are-required?">&#182;</a></h2><p>The following cell uses the Python <code>with</code> statement to request a changer and release it upon completion of a code block. The advantage of this construction is that it handles the release automatically, thereby avoiding a potential source of coding errors, and also provides a visual demarcation of the code block where the charger is being use.</p>
+<p>The cell also uses the Pandas <code>pivot_table</code> to report the total amount of charging used and cleaning time provided. Find the minimum number of chargers required to produce 48 hours of cleaning time in a 16 hour shift.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[176]:</div>
+<div class="prompt input_prompt">In&nbsp;[210]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;begin&quot;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">data_log</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">roomba_model</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">charge_time</span><span class="p">,</span> <span class="n">clean_time</span><span class="p">):</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">chargers</span><span class="o">.</span><span class="n">request</span><span class="p">()</span> <span class="k">as</span> <span class="n">request</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">request</span>
+            <span class="n">tic</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span>
+            <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">charge_time</span><span class="p">)</span>
+            <span class="n">toc</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span>
+            <span class="n">data_log</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">id</span><span class="p">,</span> <span class="s2">&quot;charging&quot;</span><span class="p">,</span> <span class="n">tic</span><span class="p">,</span> <span class="n">toc</span><span class="p">])</span>
+            
+        <span class="n">tic</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span>
+        <span class="k">yield</span> <span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="n">clean_time</span><span class="p">)</span>
+        <span class="n">toc</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">now</span>
+        <span class="n">data_log</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">id</span><span class="p">,</span> <span class="s2">&quot;cleaning&quot;</span><span class="p">,</span> <span class="n">tic</span><span class="p">,</span> <span class="n">toc</span><span class="p">])</span>
+        
+<span class="n">env</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Environment</span><span class="p">()</span>
+<span class="n">chargers</span> <span class="o">=</span> <span class="n">simpy</span><span class="o">.</span><span class="n">Resource</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">roomba_df</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="n">env</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">roomba_model</span><span class="p">(</span><span class="n">roomba_df</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">][</span><span class="n">r</span><span class="p">],</span> <span class="n">roomba_df</span><span class="p">[</span><span class="s2">&quot;charge_time&quot;</span><span class="p">][</span><span class="n">r</span><span class="p">],</span> <span class="n">roomba_df</span><span class="p">[</span><span class="s2">&quot;clean_time&quot;</span><span class="p">][</span><span class="n">r</span><span class="p">]))</span>
+
+<span class="n">env</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">until</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_log</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">,</span> <span class="s2">&quot;begin&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">])</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;end&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;begin&quot;</span><span class="p">]</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;event&quot;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">}</span> <span class="p">)</span>
 </pre></div>
 
@@ -14725,7 +14661,7 @@ E clean time = 10.799999999999997
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[176]:</div>
+    <div class="prompt output_prompt">Out[210]:</div>
 
 
 
@@ -14782,11 +14718,42 @@ E clean time = 10.799999999999997
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.3.8-Assignment-for-Thursday">3.3.8 Assignment for Thursday<a class="anchor-link" href="#3.3.8-Assignment-for-Thursday">&#182;</a></h2><ol>
-<li>Determine the minimum number of chargers required to meet cleaning requirement.</li>
-<li>Modify the model to assume the changers are fully charged at the start of the cleaning shift. Does that reduce the number of chargers required?</li>
-<li>If you have time: Create a chart showing the utilization of each Roomba ... the time it is charging, cleaning, and remaining idle.</li>
-</ol>
+<h2 id="3.3.9-Assignment-for-Thursday">3.3.9 Assignment for Thursday<a class="anchor-link" href="#3.3.9-Assignment-for-Thursday">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.3.9.1-Exercise-1.">3.3.9.1 Exercise 1.<a class="anchor-link" href="#3.3.9.1-Exercise-1.">&#182;</a></h3><p>Modify the model to assume the changers are fully charged at the start of the cleaning shift. Does that reduce the number of chargers required?</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.3.9.2-Exercise-2.">3.3.9.2 Exercise 2.<a class="anchor-link" href="#3.3.9.2-Exercise-2.">&#182;</a></h3><p>Assume each Roomba needs to dispose of waste after 20 minutes of cleaning. It takes 5 minutes to dispose of the waste, and requires access to a waste disposal station. How many waste stations will be required?</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.3.9.3-Exercise-3.-(optional)">3.3.9.3 Exercise 3. (optional)<a class="anchor-link" href="#3.3.9.3-Exercise-3.-(optional)">&#182;</a></h3><p>Create a function that accepts df (the data log after converting to a pandas DataFrame) and, for every Roomba, shows a time line of charging and cleaning periods.</p>
 
 </div>
 </div>
@@ -14816,7 +14783,7 @@ E clean time = 10.799999999999997
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><!--NAVIGATION-->
-&lt; <a href="https://jckantor.github.io/CBE40455-2020/03.02-Introduction-to-Simpy.html">3.2 Introduction to Simpy</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/CBE40455-2020/03.10-Agent-based-campus-covid-model.html">3.10 Agent based model for control of COVID-19 on a college campus</a><p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/03.03-Simpy.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/03.03-Simpy.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+&lt; <a href="https://jckantor.github.io/CBE40455-2020/03.02-Introduction-to-Simpy.html">3.2 Introduction to Simpy</a> | <a href="toc.html">Contents</a> | <a href="https://jckantor.github.io/CBE40455-2020/03.10-Agent-based-campus-covid-model.html">3.10 Agent based model for control of COVID-19 on a college campus</a><p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/03.03-Agent-Based-Models.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/03.03-Agent-Based-Models.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
 
 </div>
 </div>

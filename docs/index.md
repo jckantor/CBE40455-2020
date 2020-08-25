@@ -17,6 +17,6 @@
 ### [Chapter 3.0 Introduction to Discrete Event Modeling](https://jckantor.github.io/CBE40455-2020/03.00-Introduction-to-Discrete-Event-Modeling.html)
 - [3.1 Python Generators](https://jckantor.github.io/CBE40455-2020/03.01-Python-Generators.html)
 - [3.2 Introduction to Simpy](https://jckantor.github.io/CBE40455-2020/03.02-Introduction-to-Simpy.html)
-- [3.3 Agent Based Models](https://jckantor.github.io/CBE40455-2020/03.03-Simpy.html)
+- [3.3 Agent Based Models](https://jckantor.github.io/CBE40455-2020/03.03-Agent-Based-Models.html)
 - [3.10 Agent based model for control of COVID-19 on a college campus](https://jckantor.github.io/CBE40455-2020/03.10-Agent-based-campus-covid-model.html)
 
