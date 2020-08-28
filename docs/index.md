@@ -19,5 +19,4 @@
 - [3.2 Introduction to Simpy](https://jckantor.github.io/CBE40455-2020/03.02-Introduction-to-Simpy.html)
 - [3.3 Agent Based Models](https://jckantor.github.io/CBE40455-2020/03.03-Agent-Based-Models.html)
 - [3.4 Modeling Events](https://jckantor.github.io/CBE40455-2020/03.04-Modeling-Events.html)
-- [3.10 Agent based model for control of COVID-19 on a college campus](https://jckantor.github.io/CBE40455-2020/03.10-Agent-based-campus-covid-model.html)
 
