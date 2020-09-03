@@ -21,5 +21,7 @@
 - [3.4 Modeling Events](https://jckantor.github.io/CBE40455-2020/03.04-Modeling-Events.html)
 - [3.5 Assignment](https://jckantor.github.io/CBE40455-2020/03.05-Assignment.html)
 - [3.6 Simulating Queuing Systems](https://jckantor.github.io/CBE40455-2020/03.06-Queuing-Systems-and-Poisson-Processes.html)
-- [3.7 Application of Queuing Systems](https://jckantor.github.io/CBE40455-2020/03.07-Application-of-Queuing-Systems.html)
+- [3.7 Simulating Queuing Systems](https://jckantor.github.io/CBE40455-2020/03.07-Simulating-Queuing-Systems.html)
+- [3.8 Modeling and Simulation of a Grocery Store Checkout Operation](https://jckantor.github.io/CBE40455-2020/03.08-Grocery-Store.html)
+- [3.9 Batch Chemical Process](https://jckantor.github.io/CBE40455-2020/03.09-Batch-Chemical-Process.html)
 
