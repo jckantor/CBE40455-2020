@@ -19,5 +19,6 @@
 - [3.2 Introduction to Simpy](https://jckantor.github.io/CBE40455-2020/03.02-Introduction-to-Simpy.html)
 - [3.3 Agent Based Models](https://jckantor.github.io/CBE40455-2020/03.03-Agent-Based-Models.html)
 - [3.4 Modeling Events](https://jckantor.github.io/CBE40455-2020/03.04-Modeling-Events.html)
-- [3.6 Queuing](https://jckantor.github.io/CBE40455-2020/03.06-Queuing-Systems.html)
+- [3.6 Simulating Queuing Systems](https://jckantor.github.io/CBE40455-2020/03.06-Queuing-Systems-and-Poisson-Processes.html)
+- [3.7 Application of Queuing Systems](https://jckantor.github.io/CBE40455-2020/03.07-Application-of-Queuing-Systems.html)
 
