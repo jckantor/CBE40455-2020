@@ -23,6 +23,6 @@
 - [3.6 Simulating Queuing Systems](https://jckantor.github.io/CBE40455-2020/03.06-Queuing-Systems-and-Poisson-Processes.html)
 - [3.7 Simulating Queuing Systems](https://jckantor.github.io/CBE40455-2020/03.07-Simulating-Queuing-Systems.html)
 - [3.8 Modeling and Simulation of a Grocery Store Checkout Operation](https://jckantor.github.io/CBE40455-2020/03.08-Modeling-and-Simulation-of-a-Grocery-Store-Checkout-Operation.html)
-- [3.9 Modeling and Simulation of a Grocery Store Checkout Operation](https://jckantor.github.io/CBE40455-2020/03.09-Refinements-to-the-Grocery-Store-Checkout-Operation.html)
+- [3.9 Refinements of a Grocery Store Checkout Operation](https://jckantor.github.io/CBE40455-2020/03.09-Refinements-to-the-Grocery-Store-Checkout-Operation.html)
 - [3.10 Creating Simulation Classes](https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html)
 
