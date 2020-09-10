@@ -24,5 +24,6 @@
 - [3.7 Simulating Queuing Systems](https://jckantor.github.io/CBE40455-2020/03.07-Simulating-Queuing-Systems.html)
 - [3.8 Modeling and Simulation of a Grocery Store Checkout Operation](https://jckantor.github.io/CBE40455-2020/03.08-Modeling-and-Simulation-of-a-Grocery-Store-Checkout-Operation.html)
 - [3.9 Refinements of a Grocery Store Checkout Operation](https://jckantor.github.io/CBE40455-2020/03.09-Refinements-to-the-Grocery-Store-Checkout-Operation.html)
-- [3.10 Creating Simulation Classes](https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html)
+- [3.10 Objected-Oriented Simulation](https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html)
+- [3.11 Batch Chemical Process](https://jckantor.github.io/CBE40455-2020/03.11-Batch-Chemical-Process.html)
 

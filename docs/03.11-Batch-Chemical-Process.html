@@ -1,8 +1,9 @@
+<!-- jinja2 template extends `full` to include cell tags in the html rendering of notebooks -->
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
 
-<title>figure_index</title>
+<title>Notebook</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13074,22 +13075,112 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+
+    
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="CBE40455-2020"><a href="https://jckantor.github.io/CBE40455-2020">CBE40455-2020</a><a class="anchor-link" href="#CBE40455-2020">&#182;</a></h1><h2 id="Index-of-Figures-in-this-Repository">Index of Figures in this Repository<a class="anchor-link" href="#Index-of-Figures-in-this-Repository">&#182;</a></h2><h3 id="BatchProcess.png">BatchProcess.png<a class="anchor-link" href="#BatchProcess.png">&#182;</a></h3><p><img src="figures/BatchProcess.png" alt="BatchProcess.png"></p>
-<ul>
-<li><a href="https://jckantor.github.io/CBE40455-2020/03.06-Queuing-Systems-and-Poisson-Processes.html#3.6.7-Batch-Processing-Example">3.6.7 Batch Processing Example</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/03.11-Batch-Chemical-Process.html#3.11.1-Problem-Statement">3.11.1 Problem Statement</a></li>
-</ul>
-<h3 id="Paltiel2020-fig-e1.png">Paltiel2020-fig-e1.png<a class="anchor-link" href="#Paltiel2020-fig-e1.png">&#182;</a></h3><p><img src="figures/Paltiel2020-fig-e1.png" alt="Paltiel2020-fig-e1.png"></p>
-<ul>
-<li><a href="https://jckantor.github.io/CBE40455-2020/02.03-Campus-reopening.html#2.3-Campus-Re-opening-Model">2.3 Campus Re-opening Model</a></li>
-</ul>
+<p><!--NOTEBOOK_HEADER-->
+<em>This notebook contains material from <a href="https://jckantor.github.io/CBE40455-2020">CBE40455-2020</a>;
+content is available <a href="https://github.com/jckantor/CBE40455-2020.git">on Github</a>.</em></p>
 
 </div>
 </div>
 </div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><!--NAVIGATION-->
+&lt; <a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html">3.10 Objected-Oriented Simulation</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/03.11-Batch-Chemical-Process.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/03.11-Batch-Chemical-Process.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="3.11-Batch-Chemical-Process">3.11 Batch Chemical Process<a class="anchor-link" href="#3.11-Batch-Chemical-Process">&#182;</a></h1>
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.11.1-Problem-Statement">3.11.1 Problem Statement<a class="anchor-link" href="#3.11.1-Problem-Statement">&#182;</a></h2><p>Schultheisz, Daniel, and Jude T. Sommerfeld. "Discrete-Event Simulation in Chemical Engineering." Chemical Engineering Education 22.2 (1988): 98-102.</p>
+<p><img src="figures/BatchProcess.png" alt="Batch Process"></p>
+
+<pre><code>"... a small, single-product batch chemical plant has three identical reactors in parallel, followed by a single storage tank and a batch still. Customer orders (batches) to be filled (which begin with processing in the reactor) occur every 115 ± 30 minutes, uniformly distributed. The reaction time in a given reactor is 335 ± 60 minutes, and the distillation time in the still is 110 ± 25 minutes, both times uniformly distributed. The holding capacity of the storage tank is exactly one batch. Hence, the storage tank must be empty for a given reactor to discharge its batch; if not, the reactor cannot begin processing a new batch until the storage tank becomes empty. The simulation is to be run for 100 batches. The model should have the capability to collect waiting line statistics for the queue immediately upstream of the reactor.""
+
+
+</code></pre>
+<p>Create a SimPy simulation of this process.</p>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.11.2-Analysis">3.11.2 Analysis<a class="anchor-link" href="#3.11.2-Analysis">&#182;</a></h2><ol>
+<li><p>What is the purpose of the simulation? What question needs to be answered?  What are the key performance indicators?  What data needs to be collected?</p>
+</li>
+<li><p>What simulation objects should be created for this application?</p>
+</li>
+<li><p>What classes of shared resources will be used in this model?</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+
+
+
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+    
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><!--NAVIGATION-->
+&lt; <a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html">3.10 Objected-Oriented Simulation</a> | <a href="toc.html">Contents</a> |<p><a href="https://colab.research.google.com/github/jckantor/CBE40455-2020/blob/master/docs/03.11-Batch-Chemical-Process.ipynb"> <img align="left" src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab" title="Open in Google Colaboratory"></a><p><a href="https://jckantor.github.io/CBE40455-2020/03.11-Batch-Chemical-Process.ipynb"> <img align="left" src="https://img.shields.io/badge/Github-Download-blue.svg" alt="Download" title="Download Notebook"></a></p>
+
+</div>
+</div>
+</div>
+
+
     </div>
   </div>
 </body>

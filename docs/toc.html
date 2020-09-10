@@ -13351,13 +13351,44 @@ div#notebook {
 - [3.9.7 Solution 7.](https://jckantor.github.io/CBE40455-2020/03.09-Refinements-to-the-Grocery-Store-Checkout-Operation.html#3.9.7-Solution-7.)
 
 </code></pre>
-<h3 id="3.10-Creating-Simulation-Classes"><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html">3.10 Creating Simulation Classes</a><a class="anchor-link" href="#3.10-Creating-Simulation-Classes">&#182;</a></h3><ul>
+<h3 id="3.10-Objected-Oriented-Simulation"><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html">3.10 Objected-Oriented Simulation</a><a class="anchor-link" href="#3.10-Objected-Oriented-Simulation">&#182;</a></h3><ul>
 <li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.1-Installations-and-imports">3.10.1 Installations and imports</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.2-Introduction-to-`dataclass`">3.10.2 Introduction to <code>dataclass</code></a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.3-Grocery-Store-Model">3.10.3 Grocery Store Model</a></li>
-<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.4-Creating-Smart-Objects">3.10.4 Creating Smart Objects</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.2-Introduction-to-`dataclass`">3.10.2 Introduction to <code>dataclass</code></a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.2.1-Creating-a-`dataclass`">3.10.2.1 Creating a <code>dataclass</code></a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.2.2-Specifying-parameter-values">3.10.2.2 Specifying parameter values</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.2.2.1-Specifying-a-parameter-value-when-creating-a-new-instance">3.10.2.2.1 Specifying a parameter value when creating a new instance</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.2.2.2-Setting-default-parameter-values">3.10.2.2.2 Setting default parameter values</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.2.2.3-Initializing-a-dataclass-with-__post_init__(self">3.10.2.2.3 Initializing a dataclass with <strong>post_init</strong>(self)</a>)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.3-Using-`dataclass`-with-Simpy">3.10.3 Using <code>dataclass</code> with Simpy</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.3.1-Modularize-your-simulations-with-classes">3.10.3.1 Modularize your simulations with classes</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.3.2-Avoid-global-variables">3.10.3.2 Avoid global variables</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.3.3-Use-__post_init__-to-simplify-your-models">3.10.3.3 Use <strong>post_init</strong> to simplify your models</a></li>
+</ul>
+</li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.4-Grocery-Store-Model">3.10.4 Grocery Store Model</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.5-Customers-as-agents">3.10.5 Customers as agents</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html#3.10.6-Creating-Smart-Objects">3.10.6 Creating Smart Objects</a></li>
 <li>Markdown Links<ul>
 <li><a href="https://realpython.com/python-data-classes/">dataclass</a></li>
+<li><a href="https://realpython.com/python-data-classes/">The Ultimate Guide to Data Classes in Python 3.7</a></li>
+<li><a href="https://docs.python.org/3/library/dataclasses.html">dataclasses — Data Classes</a></li>
+<li><a href="https://towardsdatascience.com/data-classes-in-python-8d1a09c1294b">Data Classes in Python</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="3.11-Batch-Chemical-Process"><a href="https://jckantor.github.io/CBE40455-2020/03.11-Batch-Chemical-Process.html">3.11 Batch Chemical Process</a><a class="anchor-link" href="#3.11-Batch-Chemical-Process">&#182;</a></h3><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.11-Batch-Chemical-Process.html#3.11.1-Problem-Statement">3.11.1 Problem Statement</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/03.11-Batch-Chemical-Process.html#3.11.2-Analysis">3.11.2 Analysis</a></li>
+<li>Markdown Figures<ul>
+<li><a href="figures/BatchProcess.png">Batch Process</a></li>
+</ul>
+</li>
+<li>Figure files used<ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/figures/BatchProcess.png">figures/BatchProcess.png</a></li>
 </ul>
 </li>
 </ul>
