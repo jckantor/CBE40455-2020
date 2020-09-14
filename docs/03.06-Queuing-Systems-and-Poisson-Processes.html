@@ -13617,8 +13617,7 @@ $$\text{Exponential}(t | r) =  e^{-r t}$$<p>The following cell demonstrates the 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.6.6-Example:-Simulation-of-an-Order-Processing-Queue-(NEEDS-REWORK)">3.6.6 Example: Simulation of an Order Processing Queue (NEEDS REWORK)<a class="anchor-link" href="#3.6.6-Example:-Simulation-of-an-Order-Processing-Queue-(NEEDS-REWORK)">&#182;</a></h2><p><strong>Note that this model is incorrect! Update expected soon.</strong></p>
-<p>A chemical storeroom processes orders for a large research campus. At peak loads it is expected to receive an average of one order every 12 minutes. The time required to process each order is a fixed 10 minutes.</p>
+<h2 id="3.6.6-Example:-Simulation-of-an-Order-Processing-Queue">3.6.6 Example: Simulation of an Order Processing Queue<a class="anchor-link" href="#3.6.6-Example:-Simulation-of-an-Order-Processing-Queue">&#182;</a></h2><p>A chemical storeroom processes orders for a large research campus. At peak loads it is expected to receive an average of one order every 12 minutes. The time required to process each order is a fixed 10 minutes.</p>
 <ol>
 <li><p>Describe the process using the Kendall notation: M/D/1</p>
 </li>
@@ -13742,7 +13741,8 @@ $$\text{Exponential}(t | r) =  e^{-r t}$$<p>The following cell demonstrates the 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.6.7-Batch-Processing-Example">3.6.7 Batch Processing Example<a class="anchor-link" href="#3.6.7-Batch-Processing-Example">&#182;</a></h2><p>Schultheisz, Daniel, and Jude T. Sommerfeld. "Discrete-Event Simulation in Chemical Engineering." Chemical Engineering Education 22.2 (1988): 98-102.</p>
+<h2 id="3.6.7-Batch-Processing-Example--(NEEDS-REWORK)">3.6.7 Batch Processing Example  (NEEDS REWORK)<a class="anchor-link" href="#3.6.7-Batch-Processing-Example--(NEEDS-REWORK)">&#182;</a></h2><p><strong>Note that this model is incorrect! Update expected soon.</strong></p>
+<p>Schultheisz, Daniel, and Jude T. Sommerfeld. "Discrete-Event Simulation in Chemical Engineering." Chemical Engineering Education 22.2 (1988): 98-102.</p>
 <p><img src="figures/BatchProcess.png" alt="Batch Process"></p>
 
 <pre><code>"... a small, single-product batch chemical plant has three identical reactors in parallel, followed by a single storage tank and a batch still. Customer orders (batches) to be filled (which begin with processing in the reactor) occur every 115 ± 30 minutes, uniformly distributed. The reaction time in a given reactor is 335 ± 60 minutes, and the distillation time in the still is 110 ± 25 minutes, both times uniformly distributed. The holding capacity of the storage tank is exactly one batch. Hence, the storage tank must be empty for a given reactor to discharge its batch; if not, the reactor cannot begin processing a new batch until the storage tank becomes empty. The simulation is to be run for 100 batches. The model should have the capability to collect waiting line statistics for the queue im- mediately upstream of the reactor.""
