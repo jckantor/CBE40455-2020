@@ -26,4 +26,5 @@
 - [3.9 Refinements of a Grocery Store Checkout Operation](https://jckantor.github.io/CBE40455-2020/03.09-Refinements-to-the-Grocery-Store-Checkout-Operation.html)
 - [3.10 Objected-Oriented Simulation](https://jckantor.github.io/CBE40455-2020/03.10-Creating-Simulation-Classes.html)
 - [3.11 Batch Chemical Process](https://jckantor.github.io/CBE40455-2020/03.11-Project-Batch-Chemical-Process.html)
+- [3.12 Little's Law and other Odds and Ends](https://jckantor.github.io/CBE40455-2020/03.12-Littles-Law-and-other-Odds-and-Ends.html)
 
