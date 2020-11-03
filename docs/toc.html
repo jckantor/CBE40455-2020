@@ -13408,6 +13408,201 @@ div#notebook {
 </ul>
 </li>
 </ul>
+<h2 id="Chapter-7.0-Risk-and-Diversification"><a href="https://jckantor.github.io/CBE40455-2020/07.00-Risk-and-Diversification.html">Chapter 7.0 Risk and Diversification</a><a class="anchor-link" href="#Chapter-7.0-Risk-and-Diversification">&#182;</a></h2><h3 id="7.1-Measuring-Return"><a href="https://jckantor.github.io/CBE40455-2020/07.01-Measuring-Return.html">7.1 Measuring Return</a><a class="anchor-link" href="#7.1-Measuring-Return">&#182;</a></h3><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.01-Measuring-Return.html#7.1.1-Pandas-datareader">7.1.1 Pandas-datareader</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.01-Measuring-Return.html#7.1.2-Imports">7.1.2 Imports</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.01-Measuring-Return.html#7.1.3-Where-to-get-Price-Data">7.1.3 Where to get Price Data</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.01-Measuring-Return.html#7.1.3.1-Stock-Symbols">7.1.3.1 Stock Symbols</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.01-Measuring-Return.html#7.1.3.2-Yahoo-Finance">7.1.3.2 Yahoo Finance</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.01-Measuring-Return.html#7.1.3.3-Quandl">7.1.3.3 Quandl</a></li>
+</ul>
+</li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.01-Measuring-Return.html#7.1.4-Returns">7.1.4 Returns</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.01-Measuring-Return.html#7.1.4.1-Linear-fractional-or-Arithmetic-Returns">7.1.4.1 Linear fractional or Arithmetic Returns</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.01-Measuring-Return.html#7.1.4.2-Linear-returns-don&#39;t-tell-the-whole-story.">7.1.4.2 Linear returns don't tell the whole story.</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.01-Measuring-Return.html#7.1.4.3-Compounded-Log-Returns">7.1.4.3 Compounded Log Returns</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.01-Measuring-Return.html#7.1.4.4-Volatility-Drag-and-the-Relationship-between-Linear-and-Log-Returns">7.1.4.4 Volatility Drag and the Relationship between Linear and Log Returns</a></li>
+</ul>
+</li>
+<li>Markdown Links<ul>
+<li><a href="https://github.com/pydata/pandas-datareader">pandas-datareader</a></li>
+<li><a href="http://finance.yahoo.com/">Yahoo Finance</a></li>
+<li><a href="http://www.quandl.com/">Quandl</a></li>
+<li><a href="https://github.com/wilsonfreitas/awesome-quant#data-sources">awesome-quant</a></li>
+<li><a href="http://finance.yahoo.com/">Yahoo Finance</a></li>
+<li><a href="http://marubozu.blogspot.com/2006/09/how-yahoo-calculates-adjusted-closing.html">Adjusted Close</a></li>
+<li><a href="http://www.quandl.com/">Quandl</a></li>
+<li><a href="http://www.quandl.com/help/api">Quandl API</a></li>
+<li><a href="http://www.quandl.com/help/packages#Python">Quandl Python package</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="7.2-Geometric-Brownian-Motion"><a href="https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html">7.2 Geometric Brownian Motion</a><a class="anchor-link" href="#7.2-Geometric-Brownian-Motion">&#182;</a></h3><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html#7.2.1-Python-Imports-and-Utility-Functions">7.2.1 Python Imports and Utility Functions</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html#7.2.2-Statistical-Properties-of-Returns">7.2.2 Statistical Properties of Returns</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html#7.2.2.1-Distribution-of-Returns">7.2.2.1 Distribution of Returns</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html#7.2.2.2-Distribution-of-First-Half-versus-Second-Half-of-the-Data-Set">7.2.2.2 Distribution of First Half versus Second Half of the Data Set</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html#7.2.2.3-Lag-Plot-of-$r^{log}_{t+1}$-versus-$r^{log}_t$">7.2.2.3 Lag Plot of $r^{log}_{t+1}$ versus $r^{log}_t$</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html#7.2.2.4-Autocorrelation">7.2.2.4 Autocorrelation</a></li>
+</ul>
+</li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html#7.2.3-Fitting-Returns-to-a-Distribution">7.2.3 Fitting Returns to a Distribution</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html#7.2.3.1-Normal-Distribution">7.2.3.1 Normal Distribution</a></li>
+</ul>
+</li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html#7.2.4-Geometric-Brownian-Motion">7.2.4 Geometric Brownian Motion</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html#7.2.4.1-Linear-Returns">7.2.4.1 Linear Returns</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html#7.2.4.2-Log-Returns">7.2.4.2 Log Returns</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html#7.2.4.3-Forecasting">7.2.4.3 Forecasting</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html#7.2.4.4-Simulation-using-Generators">7.2.4.4 Simulation using Generators</a></li>
+</ul>
+</li>
+<li>Markdown Links<ul>
+<li><a href="https://pandas-datareader.readthedocs.io/en/latest/#"><code>pandas-datareader</code></a></li>
+</ul>
+</li>
+</ul>
+<h3 id="7.3-Binomial-Model-for-Pricing-Options"><a href="https://jckantor.github.io/CBE40455-2020/07.03-Binomial-Model-for-Pricing-Options.html">7.3 Binomial Model for Pricing Options</a><a class="anchor-link" href="#7.3-Binomial-Model-for-Pricing-Options">&#182;</a></h3><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.03-Binomial-Model-for-Pricing-Options.html#7.3.1-Historical-Data">7.3.1 Historical Data</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.03-Binomial-Model-for-Pricing-Options.html#7.3.1-Binomial-Model">7.3.1 Binomial Model</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.03-Binomial-Model-for-Pricing-Options.html#7.3.2-European-Call-Option">7.3.2 European Call Option</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.03-Binomial-Model-for-Pricing-Options.html#7.3.3-Implementing-a-Replicating-Portfolio-with-Pyomo">7.3.3 Implementing a Replicating Portfolio with Pyomo</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.03-Binomial-Model-for-Pricing-Options.html#7.3.4-European-Put-Option">7.3.4 European Put Option</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.03-Binomial-Model-for-Pricing-Options.html#7.3.5-Early-Exercise">7.3.5 Early Exercise</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.03-Binomial-Model-for-Pricing-Options.html#7.3.6-American-Put-Option">7.3.6 American Put Option</a></li>
+<li>Markdown Figures<ul>
+<li><a href="https://github.com/jckantor/CBE40455/blob/master/notebooks/figures/BinomialModel.png?raw=true">BinomialModel</a></li>
+<li><a href="https://github.com/jckantor/CBE40455/blob/master/notebooks/figures/BinomialModel_Options.png?raw=true">BinomialModel_Options</a></li>
+</ul>
+</li>
+<li>Markdown Links<ul>
+<li><a href="https://global.oup.com/ushe/product/investment-science-9780199740086?cc=us&amp;lang=en&amp;">Luenberger (2013)</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="7.4-Real-Options"><a href="https://jckantor.github.io/CBE40455-2020/07.04-Real-Options.html">7.4 Real Options</a><a class="anchor-link" href="#7.4-Real-Options">&#182;</a></h3><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.04-Real-Options.html#7.4.1-Implementing-a-Replicating-Portfolio-in-Pyomo">7.4.1 Implementing a Replicating Portfolio in Pyomo</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.04-Real-Options.html#7.4.2-Example-1.-Value-of-a-fixed-cash-flow">7.4.2 Example 1. Value of a fixed cash flow</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.04-Real-Options.html#7.4.3-Example-2.-Simplico-Gold-Mine">7.4.3 Example 2. Simplico Gold Mine</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.04-Real-Options.html#7.4.3.1-Solution">7.4.3.1 Solution</a></li>
+</ul>
+</li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.04-Real-Options.html#7.4.4-Example-3.-Simplico-Gold-Mine-Capital-Investment">7.4.4 Example 3. Simplico Gold Mine Capital Investment</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.04-Real-Options.html#7.4.1-Price-Model">7.4.1 Price Model</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.04-Real-Options.html#7.4.2-Growth-Model">7.4.2 Growth Model</a></li>
+<li>Markdown Figures<ul>
+<li><a href="../img/TimelineRealOption.png">../img/TimelineRealOption.png</a></li>
+<li><a href="../img/BinomialRealOption.png">../img/BinomialRealOption.png</a></li>
+</ul>
+</li>
+<li>Markdown Links<ul>
+<li><a href="http://www.columbia.edu/~mh2078/FoundationsFE/RealOptions.pdf">analysis of Martin Haugh</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="7.5-Portfolio-Optimization"><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html">7.5 Portfolio Optimization</a><a class="anchor-link" href="#7.5-Portfolio-Optimization">&#182;</a></h3><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.1-Import-libraries">7.5.1 Import libraries</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.2-Load-Price-Data">7.5.2 Load Price Data</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.3-Plot-Price-and-Returns-Data">7.5.3 Plot Price and Returns Data</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.4-Linear-and-Log-Returns">7.5.4 Linear and Log Returns</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.5-Covariance-and-Correlation-Matrices">7.5.5 Covariance and Correlation Matrices</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.5.1-Visualizing-the-correlation-coefficients">7.5.5.1 Visualizing the correlation coefficients</a></li>
+</ul>
+</li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.1-Creating-Portfolios">7.5.1 Creating Portfolios</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.1.1-Mean-Return-and-Variance-of-a-Portfolio">7.5.1.1 Mean Return and Variance of a Portfolio</a></li>
+</ul>
+</li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.2-Examples-of-Portfolios-with-Two-Assets">7.5.2 Examples of Portfolios with Two Assets</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.3-Minimum-Risk-Portfolio">7.5.3 Minimum Risk Portfolio</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.3.1-Pyomo-Model-and-Solution">7.5.3.1 Pyomo Model and Solution</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.3.2-Out-of-Sample-Simulation">7.5.3.2 Out-of-Sample Simulation</a></li>
+</ul>
+</li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.4-Markowitz-Portfolio">7.5.4 Markowitz Portfolio</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.4.1-Out-of-Sample-Simulation">7.5.4.1 Out of Sample Simulation</a></li>
+</ul>
+</li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.5-Risk-Free-Asset">7.5.5 Risk-Free Asset</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.6-Maximum-Log-Return-(to-be-developed">7.5.6 Maximum Log Return (to be developed).</a>.)</li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html#7.5.7-Exercises">7.5.7 Exercises</a></li>
+<li>Markdown Links<ul>
+<li><a href="http://jupyter.org/">Jupyter notebook</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="7.6-Portfolio-Optimization-using-Mean-Absolute-Deviation"><a href="https://jckantor.github.io/CBE40455-2020/07.06-Portfolio-Optimization-using-Mean-Absolute-Deviation.html">7.6 Portfolio Optimization using Mean Absolute Deviation</a><a class="anchor-link" href="#7.6-Portfolio-Optimization-using-Mean-Absolute-Deviation">&#182;</a></h3><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.06-Portfolio-Optimization-using-Mean-Absolute-Deviation.html#7.6.1-Background">7.6.1 Background</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.06-Portfolio-Optimization-using-Mean-Absolute-Deviation.html#7.6.2-Mean-Absolute-Deviation">7.6.2 Mean Absolute Deviation</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.06-Portfolio-Optimization-using-Mean-Absolute-Deviation.html#7.6.3-Reformulation-of-the-MAD-Objective">7.6.3 Reformulation of the MAD Objective</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.06-Portfolio-Optimization-using-Mean-Absolute-Deviation.html#7.6.4-Seeding-the-GLPK-Pseudo-Random-Number-Generator">7.6.4 Seeding the GLPK Pseudo-Random Number Generator</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.06-Portfolio-Optimization-using-Mean-Absolute-Deviation.html#7.6.5-Simulation-of-the-Historical-Returns">7.6.5 Simulation of the Historical Returns</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.06-Portfolio-Optimization-using-Mean-Absolute-Deviation.html#7.6.6-MathProg-Model">7.6.6 MathProg Model</a></li>
+<li>Markdown Links<ul>
+<li><a href="http://ipython.org/notebook.html">IPython notebook</a></li>
+<li><a href="http://en.wikibooks.org/wiki/GLPK/Portfolio_Optimization">GLPK Wikibook tutorial on the subject</a></li>
+<li><a href="http://en.wikibooks.org/wiki/GLPK/Portfolio_Optimization">A complete tutorial</a></li>
+<li><a href="http://en.wikibooks.org/wiki/GLPK/">GLPK wikibook</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="7.7-Portfolio-Optimization"><a href="https://jckantor.github.io/CBE40455-2020/07.07-MAD-Portfolio-Optimization.html">7.7 Portfolio Optimization</a><a class="anchor-link" href="#7.7-Portfolio-Optimization">&#182;</a></h3><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.07-MAD-Portfolio-Optimization.html#7.7.1-Investment-Objectives">7.7.1 Investment Objectives</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.07-MAD-Portfolio-Optimization.html#7.7.2-Why-Diversify?">7.7.2 Why Diversify?</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.07-MAD-Portfolio-Optimization.html#7.7.2.1-Reduce-Risk-through-Law-of-Large-Numbers">7.7.2.1 Reduce Risk through Law of Large Numbers</a></li>
+</ul>
+</li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.07-MAD-Portfolio-Optimization.html#7.7.3-Select-a-Portfolio-from-a-Set-of-Candidate-Portfolios">7.7.3 Select a Portfolio from a Set of Candidate Portfolios</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.07-MAD-Portfolio-Optimization.html#7.7.3.1-Download-Historical-Data">7.7.3.1 Download Historical Data</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.07-MAD-Portfolio-Optimization.html#7.7.3.2-Equally-Weighted-Portfolio">7.7.3.2 Equally Weighted Portfolio</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.07-MAD-Portfolio-Optimization.html#7.7.3.3-Compute-Component-Returns">7.7.3.3 Compute Component Returns</a></li>
+</ul>
+</li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.07-MAD-Portfolio-Optimization.html#7.7.4-MAD-Porfolio">7.7.4 MAD Porfolio</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.07-MAD-Portfolio-Optimization.html#7.7.5-Problem-1:-Solve-for-Dominating-MAD-Portfolio">7.7.5 Problem 1: Solve for Dominating MAD Portfolio</a></li>
+<li>Markdown Links<ul>
+<li><a href="http://ipython.org/notebook.html">IPython notebook</a></li>
+<li><a href="http://en.wikibooks.org/wiki/GLPK/Portfolio_Optimization">GLPK Wikibook tutorial on the subject</a></li>
+<li><a href="http://github.com/jckantor/CBE20255">http://github.com/jckantor/CBE20255</a></li>
+<li><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution Noncommericial ShareAlike License</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="7.8-Log-Optimal-Growth-and-the-Kelly-Criterion"><a href="https://jckantor.github.io/CBE40455-2020/07.08-Log-Optimal-Growth-and-the-Kelly-Criterion.html">7.8 Log-Optimal Growth and the Kelly Criterion</a><a class="anchor-link" href="#7.8-Log-Optimal-Growth-and-the-Kelly-Criterion">&#182;</a></h3><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.08-Log-Optimal-Growth-and-the-Kelly-Criterion.html#7.8.1-Initializations">7.8.1 Initializations</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.08-Log-Optimal-Growth-and-the-Kelly-Criterion.html#7.8.2-What-are-the-Issues-in-Managing-for-Optimal-Growth?">7.8.2 What are the Issues in Managing for Optimal Growth?</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.08-Log-Optimal-Growth-and-the-Kelly-Criterion.html#7.8.3-Why-Maximizing-Expected-Wealth-is-a-Bad-Idea">7.8.3 Why Maximizing Expected Wealth is a Bad Idea</a><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.08-Log-Optimal-Growth-and-the-Kelly-Criterion.html#7.8.3.1-Exercise">7.8.3.1 Exercise</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.08-Log-Optimal-Growth-and-the-Kelly-Criterion.html#7.8.3.2-Utility-Functions">7.8.3.2 Utility Functions</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.08-Log-Optimal-Growth-and-the-Kelly-Criterion.html#7.8.3.3-Maximizing-Growth">7.8.3.3 Maximizing Growth</a></li>
+</ul>
+</li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.08-Log-Optimal-Growth-and-the-Kelly-Criterion.html#7.8.4-Kelly&#39;s-Criterion:-Maximizing-Growth-for-a-Game-with-Arbitrary-Odds">7.8.4 Kelly's Criterion: Maximizing Growth for a Game with Arbitrary Odds</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.08-Log-Optimal-Growth-and-the-Kelly-Criterion.html#7.8.5-Volatility-Pumping">7.8.5 Volatility Pumping</a></li>
+<li>Markdown Figures<ul>
+<li><a href="https://github.com/jckantor/CBE40455/blob/master/notebooks/figures/Kelly_Criterion_Fig1.png?raw=true">Kelly_Criterion_Fig1</a></li>
+<li><a href="https://github.com/jckantor/CBE40455/blob/master/notebooks/figures/Kelly_Criterion_Fig2.png?raw=true">Kelly_Criterion_Fig2</a></li>
+<li><a href="https://github.com/jckantor/CBE40455/blob/master/notebooks/figures/Kelly_Criterion_Volatility_Pumping.png?raw=true">Kelly_Criterion_Volatility_Pumping</a></li>
+</ul>
+</li>
+<li>Markdown Links<ul>
+<li><a href="http://ipython.org/notebook.html">IPython notebook</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="7.9-Log-Optimal-Portfolios"><a href="https://jckantor.github.io/CBE40455-2020/07.09-Log-Optimal-Portfolios.html">7.9 Log-Optimal Portfolios</a><a class="anchor-link" href="#7.9-Log-Optimal-Portfolios">&#182;</a></h3><ul>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.09-Log-Optimal-Portfolios.html#7.9.1-Initializations">7.9.1 Initializations</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.09-Log-Optimal-Portfolios.html#7.9.2-Kelly&#39;s-Criterion">7.9.2 Kelly's Criterion</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.09-Log-Optimal-Portfolios.html#7.9.3-Example-1.-Maximizing-Return-for-a-Game-with-Arbitrary-Odds">7.9.3 Example 1. Maximizing Return for a Game with Arbitrary Odds</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.09-Log-Optimal-Portfolios.html#7.9.4-Example-2.-Betting-Wheel">7.9.4 Example 2. Betting Wheel</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.09-Log-Optimal-Portfolios.html#7.9.5-Example-3.-Stock/Bond-Portfolio-in-Continuous-Time">7.9.5 Example 3. Stock/Bond Portfolio in Continuous Time</a></li>
+<li><a href="https://jckantor.github.io/CBE40455-2020/07.09-Log-Optimal-Portfolios.html#7.9.6-Volatility-Pumping">7.9.6 Volatility Pumping</a></li>
+<li>Markdown Figures<ul>
+<li><a href="https://github.com/jckantor/CBE40455/blob/master/notebooks/figures/Kelly_Criterion_Fig2.png?raw=true">Kelly_Criterion_Fig2</a></li>
+<li><a href="https://github.com/jckantor/CBE40455/blob/master/notebooks/figures/Kelly_Criterion_Volatility_Pumping.png?raw=true">Kelly_Criterion_Volatility_Pumping</a></li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>

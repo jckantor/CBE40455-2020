@@ -28,3 +28,14 @@
 - [3.11 Batch Chemical Process](https://jckantor.github.io/CBE40455-2020/03.11-Project-Batch-Chemical-Process.html)
 - [3.12 Little's Law and other Odds and Ends](https://jckantor.github.io/CBE40455-2020/03.12-Littles-Law-and-other-Odds-and-Ends.html)
 
+### [Chapter 7.0 Risk and Diversification](https://jckantor.github.io/CBE40455-2020/07.00-Risk-and-Diversification.html)
+- [7.1 Measuring Return](https://jckantor.github.io/CBE40455-2020/07.01-Measuring-Return.html)
+- [7.2 Geometric Brownian Motion](https://jckantor.github.io/CBE40455-2020/07.02-Geometric-Brownian-Motion.html)
+- [7.3 Binomial Model for Pricing Options](https://jckantor.github.io/CBE40455-2020/07.03-Binomial-Model-for-Pricing-Options.html)
+- [7.4 Real Options](https://jckantor.github.io/CBE40455-2020/07.04-Real-Options.html)
+- [7.5 Portfolio Optimization](https://jckantor.github.io/CBE40455-2020/07.05-Portfolio-Optimization.html)
+- [7.6 Portfolio Optimization using Mean Absolute Deviation](https://jckantor.github.io/CBE40455-2020/07.06-Portfolio-Optimization-using-Mean-Absolute-Deviation.html)
+- [7.7 Portfolio Optimization](https://jckantor.github.io/CBE40455-2020/07.07-MAD-Portfolio-Optimization.html)
+- [7.8 Log-Optimal Growth and the Kelly Criterion](https://jckantor.github.io/CBE40455-2020/07.08-Log-Optimal-Growth-and-the-Kelly-Criterion.html)
+- [7.9 Log-Optimal Portfolios](https://jckantor.github.io/CBE40455-2020/07.09-Log-Optimal-Portfolios.html)
+
